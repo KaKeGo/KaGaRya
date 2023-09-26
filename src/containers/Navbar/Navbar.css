@@ -2,6 +2,11 @@
     border: solid 1px;
 }
 
+.navbar {
+    color: white;
+    background-color: rgba(6, 7, 108, 0.8);
+}
+
 .cursor:hover {
     cursor: pointer;
 }

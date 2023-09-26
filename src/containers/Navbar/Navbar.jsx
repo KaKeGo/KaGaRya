@@ -8,7 +8,7 @@ import './Navbar.css'
 
 const Navbar = () => {
   return (
-    <nav className='mb-8'>
+    <nav className='mb-4 navbar p-1'>
       <div className='flex'>
 
         <div className='w-1/6 p-2'>
@@ -42,8 +42,8 @@ const Navbar = () => {
 
         </div>
 
-        <div className='w-1/6 text-center p-2'>
-          <ul className='inline-flex space-x-6'>
+        <div className='w-1/6 text-right p-2'>
+          <ul className='inline-flex space-x-6 mx-2'>
 
             <li>
               <Link>Profile</Link>

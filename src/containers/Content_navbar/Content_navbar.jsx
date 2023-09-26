@@ -5,8 +5,8 @@ import './Content_navbar.css'
 
 const Content_navbar = () => {
   return (
-    <nav className='mb-4'>
-        <div className='b mx-4 flex'>
+    <nav className='mb-4 mx-2 content_navbar'>
+        <div className='flex p-4'>
             <div>
 
                 <ul>
