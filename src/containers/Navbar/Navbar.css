@@ -1,0 +1,7 @@
+.b {
+    border: solid 1px;
+}
+
+.cursor:hover {
+    cursor: pointer;
+}
