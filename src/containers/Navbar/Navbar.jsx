@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className='w-1/6 p-2'>
 
           <div className='text-center'>
-            <Link>KaGaRya</Link>
+            <Link to='/'>KaGaRya</Link>
           </div>
 
         </div>
@@ -25,16 +25,16 @@ const Navbar = () => {
             <ul className='inline-flex space-x-6'>
 
               <li>
-                <Link>Home</Link>
+                <Link to='/'>Home</Link>
               </li>
               <li>
-                <Link>Register</Link>
+                <Link to='/register'>Register</Link>
               </li>
               <li>
-                <Link>Login</Link>
+                <Link to='/login'>Login</Link>
               </li>
               <li>
-                <Link>Logout</Link>
+                <Link to='/logout'>Logout</Link>
               </li>
 
             </ul>
@@ -46,7 +46,7 @@ const Navbar = () => {
           <ul className='inline-flex space-x-6 mx-2'>
 
             <li>
-              <Link>Profile</Link>
+              <Link to='home/'>Profile</Link>
             </li>
             <li>
               <FontAwesomeIcon className='cursor' icon={faGripVertical} />
