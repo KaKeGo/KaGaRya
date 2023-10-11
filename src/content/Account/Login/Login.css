@@ -50,6 +50,11 @@
     cursor: pointer;
     text-align: center;
     font-weight: bold;
+    transition: background-color 0.6s ease;
+}
+
+.login__button:hover {
+    background-color: rgba(6, 7, 108, 0.8);
 }
 
 @media (max-width: 1200px) {

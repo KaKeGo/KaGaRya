@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 
+import FadeIn from '../../../animations/FadeIn/FadeIn'
+
 import './Login.css'
+
 
 const Login = () => {
   return (
+    <FadeIn>
     <div className='login__page'>
       <div className='login__box'>
         
@@ -47,6 +51,7 @@ const Login = () => {
 
       </div>
     </div>
+    </FadeIn>
   )
 }
 
