@@ -1,12 +1,21 @@
 import Layout from "./layout/Layout";
 import { Routes, Route } from 'react-router-dom'
 
+import Home from './content/Home/Home/Home'
+import Login from './content/Account/Login/Login'
+import Register from './content/Account/Register/Register'
+
+
 function App() {
   return (
     <div className="App">
         <Layout>
           <Routes>
-            <Route path="/" element={'Home'}/>
+
+            <Route path="/" element={<Home />}/>
+            <Route path="/login" element={<Login />}/>
+            <Route path="/register" element={<Register />}/>
+
           </Routes>
         </Layout>
     </div>

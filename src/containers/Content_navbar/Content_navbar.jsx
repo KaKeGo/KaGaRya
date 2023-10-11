@@ -11,7 +11,7 @@ const Content_navbar = () => {
 
                 <ul>
                     <li>
-                        <Link></Link>
+
                     </li>
                 </ul>
 

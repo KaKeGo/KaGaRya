@@ -10,3 +10,8 @@
 .cursor:hover {
     cursor: pointer;
 }
+
+.site__logo {
+    font-weight: bold;
+    font-size: 20px;
+}

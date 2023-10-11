@@ -13,7 +13,7 @@ const Navbar = () => {
 
         <div className='w-1/6 p-2'>
 
-          <div className='text-center'>
+          <div className='text-center site__logo'>
             <Link to='/'>KaGaRya</Link>
           </div>
 
