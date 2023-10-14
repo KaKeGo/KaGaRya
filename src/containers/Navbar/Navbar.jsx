@@ -23,10 +23,7 @@ const Navbar = () => {
           
           <div>
             <ul className='inline-flex space-x-6'>
-
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
+              
               <li>
                 <Link to='/register'>Register</Link>
               </li>
