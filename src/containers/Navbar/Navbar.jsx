@@ -43,7 +43,7 @@ const Navbar = () => {
           <ul className='inline-flex space-x-6 mx-2'>
 
             <li>
-              <Link to='home/'>Profile</Link>
+              <Link to='/profile'>Profile</Link>
             </li>
             <li>
               <FontAwesomeIcon className='cursor' icon={faGripVertical} />

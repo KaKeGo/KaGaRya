@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
 const CSRFToken = () => {
+  const [csrftoken, setCsrfToken] = useState('')
+
+  useEffect(() => {
+    
+  })
+
   return (
-    <div>CSRFToken</div>
+    <input type='hidden' />
   )
 }
 
