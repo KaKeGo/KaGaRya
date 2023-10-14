@@ -23,7 +23,12 @@ const Footer = () => {
               </div>
               <div className='footer-right'>
               <ul className='social-icons'>
-                  <li><a href='#'><FontAwesomeIcon icon={faFacebook} /></a></li>
+                <li>
+                    <a 
+                    href='https://www.facebook.com/profile.php?id=61552374331657'>
+                        <FontAwesomeIcon icon={faFacebook} />
+                    </a>
+                </li>
                   <li><a href='#'><FontAwesomeIcon icon={faInstagram} /></a></li>
                   <li><a href='#'><FontAwesomeIcon icon={faTiktok} /></a></li>
               </ul>
