@@ -2,7 +2,7 @@ import Layout from "./layout/Layout";
 import { Routes, Route } from 'react-router-dom'
 
 import Home from './content/Home/Home/Home'
-import Login from './content/Account/Login/Login'
+import LoginView from './content/Account/Login/LoginView'
 import Register from './content/Account/Register/Register'
 import Profile from "./content/Account/Profile/Profile";
 
@@ -14,7 +14,7 @@ function App() {
           <Routes>
 
             <Route path="/" element={<Home />}/>
-            <Route path="/login" element={<Login />}/>
+            <Route path="/login" element={<LoginView />}/>
             <Route path="/register" element={<Register />}/>
             <Route path="/profile" element={<Profile />}/>
 

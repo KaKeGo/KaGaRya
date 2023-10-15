@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Cookies from 'js-cookie'
+import Cookie from 'js-cookie'
 
 const CSRFToken = () => {
   const [csrftoken, setCsrfToken] = useState('')
@@ -11,8 +11,7 @@ const CSRFToken = () => {
         const response = await axios.get(`http://localhost:8000/accounts/csrftoken/`)
         const csrfTokenResponse = response.data.CSRFToken
         setCsrfToken(csrfTokenResponse)
-        Cookies.set('csrftoklen', csrfTokenResponse)
-        console.log('CSRFToken: ', csrfTokenResponse)
+        Cookie.set('csrftoken', csrfTokenResponse)
       } catch (error) {
         console.log('Failed to fetch CSRFToken: ', error.message)
       }
