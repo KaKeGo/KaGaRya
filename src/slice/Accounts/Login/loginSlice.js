@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from 'axios'
-import Cookie from "js-cookie"
+import Cookies from "js-cookie"
 
 
 
@@ -8,7 +8,7 @@ export const Login = createAsyncThunk(
     'user/login',
     async (userCredentials) => {
         
-        const csrftoken = Cookie.get('csrftoken')
+        const csrftoken = Cookies.get('csrftoken')
 
         const config = {
             headers: {
