@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -23,21 +23,18 @@ const LoginView = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(Login({ email, password })).then((response) => {
-      if (loginStatus === 'succeeded') {
-        navigate('/')
-      }
-    })
+    dispatch(Login({ email, password }))
   }
+
+  useEffect(() => {
+    if (loginStatus === 'succeeded') {
+      navigate('/')
+    }
+  }, [loginStatus, navigate])
 
   return (
     <FadeIn>
     <div className='login__page'>
-      {loginStatus === 'loading' ? (
-        <div>Loading...</div>
-      ) : loginStatus === 'succeeded' ? (
-        <div>User logged in: success</div>
-      ) : (
       <div className='login__box'>
         
         <div className='login__title'>
@@ -84,7 +81,6 @@ const LoginView = () => {
         </div>
 
       </div>
-      )}
     </div>
     </FadeIn>
   )
