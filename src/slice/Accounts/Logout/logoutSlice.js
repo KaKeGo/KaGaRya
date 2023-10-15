@@ -20,8 +20,8 @@ export const Logout = createAsyncThunk(
                 }
             )
             return response.data
-        } catch (error) {
-            return rejectWithValue(error.response.data)
+        } catch (err) {
+            return rejectWithValue(err.response.data)
         }
     }
 )
