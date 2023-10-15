@@ -4,6 +4,9 @@ import FadeIn from '../../../animations/FadeIn/FadeIn'
 
 import './Register.css'
 
+import CSRFToken from '../../../CSRFToken'
+
+
 
 const Register = () => {
   return (
@@ -17,6 +20,8 @@ const Register = () => {
 
         <div>
           <form>
+          <CSRFToken />
+
 
           <div>
             <label className='input__label'>

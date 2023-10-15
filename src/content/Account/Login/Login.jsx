@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 
 import './Login.css'
+import CSRFToken from '../../../CSRFToken'
+
 
 
 const Login = () => {
@@ -17,6 +19,7 @@ const Login = () => {
 
         <div>
           <form>
+            <CSRFToken />
 
             <div>
               <label className='input__label'>
