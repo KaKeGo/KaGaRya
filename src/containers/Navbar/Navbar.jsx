@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
 import './Navbar.css'
+import LogoutView from '../../content/Account/Logout/LogoutView'
 
 const Navbar = () => {
   return (
@@ -31,7 +32,7 @@ const Navbar = () => {
                 <Link to='/login'>Login</Link>
               </li>
               <li>
-                <Link to='/logout'>Logout</Link>
+                <LogoutView />
               </li>
 
             </ul>

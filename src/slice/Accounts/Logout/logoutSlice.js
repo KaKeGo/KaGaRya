@@ -10,7 +10,7 @@ export const Logout = createAsyncThunk(
             const csrftoken = Cookies.get('csrftoken')
 
             const response = await axios.post(
-                `http://localhost:8000/accounts/profile/logout/')`,
+                `http://localhost:8000/accounts/profile/logout/`,
                 {},
                 {
                     headers: {
