@@ -3,8 +3,8 @@
     display: flex;
     justify-content:  center;
     align-items: center;
-    margin-top: 100px;
     color: white;
+    min-height: calc(70vh);
 }
 
 .login__box {

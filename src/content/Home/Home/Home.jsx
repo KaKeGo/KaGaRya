@@ -2,9 +2,12 @@ import React from 'react'
 
 import './Home.css'
 import RecentlyAddedGames from '../../GamesList/RecentlyAddedGames/RecentlyAddedGames'
+import FadeInAnimation from '../../../animations/FadeIn/FadeIn'
+
 
 const Home = () => {
   return (
+    <FadeInAnimation>
     <div className='home__container'>
       <div className='home__box'>
 
@@ -18,6 +21,7 @@ const Home = () => {
 
       </div>
     </div>
+    </FadeInAnimation>
   )
 }
 

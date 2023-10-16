@@ -1,14 +1,11 @@
 
-.footer__brake {
-    margin-top: 10px;
+.footer__wrap {
+    padding-bottom: 4rem;
 }
 
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(6, 7, 108, 0.8);
+.footer__box {
     width: 100%;
+    background-color: rgba(6, 7, 108, 0.8);
     color: white;
     padding: 20px;
     box-shadow: 0px -5px 10px rgba(6, 7, 108, 0.8);

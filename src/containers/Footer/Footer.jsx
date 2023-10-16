@@ -13,9 +13,9 @@ const Footer = () => {
   const formattedDate = currentDate.toLocaleDateString('en-GB', dateOptions);
 
   return (
-      <>
-      <div className='footer__brake'></div>
-      <footer className='footer p-4'>
+      <div className='footer__container'>
+      <div className='footer__wrap'></div>
+      <footer className='footer__box p-4'>
           <div className='footer-content'>
               <div className='footer-left'>
                   <p className='font'>&copy; Created by Kakego</p>
@@ -35,7 +35,7 @@ const Footer = () => {
               </div>
           </div>
       </footer>
-      </>
+      </div>
   );
 };
 
