@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 
-export const acticeAccount = createAsyncThunk(
+export const ActiceAccount = createAsyncThunk(
     'user/activate',
     async ({ uidb64, token }, { rejectWithValue }) => {
         try {
@@ -15,3 +15,30 @@ export const acticeAccount = createAsyncThunk(
         }
     }
 )
+
+
+const initialState = {
+    status: 'idle',
+    error: null,
+}
+
+const activateAccountSlice = createSlice({
+    name: 'activeAccount',
+    initialState: initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(ActiceAccount.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(ActiceAccount.fulfilled, (state) => {
+                state.status = 'succeeded'
+            })
+            .addCase(ActiceAccount.rejected, (state, action) =>{
+                state.status = 'failed'
+                state.error = action.error.message
+            })
+    }
+})
+
+export default activateAccountSlice.reducer
