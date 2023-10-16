@@ -1,10 +1,22 @@
 import React from 'react'
-import UserAuthCheckView from '../../Account/UserAuthCheck/UserAuthCheckView'
+
+import './Home.css'
+import RecentlyAddedGames from '../../GamesList/RecentlyAddedGames/RecentlyAddedGames'
 
 const Home = () => {
   return (
-    <div>
-      Home
+    <div className='home__container'>
+      <div className='home__box'>
+
+        <div className='home__tables'>
+
+          <div>
+            <RecentlyAddedGames />
+          </div>
+
+        </div>
+
+      </div>
     </div>
   )
 }

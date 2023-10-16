@@ -1,0 +1,79 @@
+
+.recently__games_comp {
+    display: flex;
+}
+
+.column__1 {
+    flex: 75%;
+}
+.column__2 {
+    flex: 25%;
+}
+
+.recently__games__title {
+    background-color: rgba(6, 7, 108, 0.8);
+    color: white;
+}
+
+.recently__games__title h2 {
+    margin-left: 15px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.recently__games__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.recently__games__box {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    box-sizing: border-box;
+    border-top: none;
+    border-left: 2px solid rgba(6, 7, 108, 0.3);
+    border-right: 2px solid rgba(6, 7, 108, 0.3);
+    border-bottom: 2px solid rgba(6, 7, 108, 0.3);
+    min-height: 260px;
+}
+
+.recently__games__content {
+    width: 20%;
+}
+
+@media (max-width: 1224px) {
+    .column__1 {
+        flex: 60%;
+    }
+    .column__2 {
+        flex: 40%;
+    }
+    .recently__games__box {
+      width: 33.33%;
+    }
+  }
+
+@media (max-width: 900px) {
+    .column__1 {
+        flex: 60%;
+    }
+    .column__2 {
+        flex: 40%;
+    }
+    .recently__games__box {
+      width: 50%;
+    }
+  }
+
+@media (max-width: 600px) {
+    .column__2 {
+        display: none;
+    }
+    .recently__games__box {
+      width: 33.33%;
+    }
+  }
