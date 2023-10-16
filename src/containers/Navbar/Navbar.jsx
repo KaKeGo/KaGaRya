@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
-  faGripVertical, faRightToBracket, faUserPlus, faRightFromBracket
+  faGripVertical, faRightToBracket, faUserPlus, faRightFromBracket, faGrip
 } from '@fortawesome/free-solid-svg-icons'
 
 import './Navbar.css'
@@ -13,9 +13,15 @@ import LogoutView from '../../content/Account/Logout/LogoutView'
 
 const Navbar = () => {
   const isAuthenticated = useSelector((state) => state.authCheck.isAuthenticated)
-  const user = useSelector((state) => state.authCheck.user)   
+  const user = useSelector((state) => state.authCheck.user)
 
   const isMobile = useMediaQuery({query: '(max-width: 600px'})
+  
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpenMenu(!isOpenMenu)
+  }
 
   return (
     <nav className='mb-4 navbar p-1'>
@@ -35,14 +41,6 @@ const Navbar = () => {
             <ul className='inline-flex space-x-6'>
             {isAuthenticated ? (
               <li>
-                {isMobile ? 
-                <LogoutView>
-                  <FontAwesomeIcon className='icon' icon={faRightFromBracket} size='lg'/> 
-                </LogoutView> : 
-                <LogoutView>
-                  <p className='icon'>Logout <FontAwesomeIcon icon={faRightFromBracket}/> </p>
-                </LogoutView>
-                }
               </li>
             ) : (
               <>
@@ -67,7 +65,7 @@ const Navbar = () => {
 
         </div>
 
-        <div className='w-2/6 text-right p-2'>
+        <div className='w-2/6 text-right p-2 mt-auto mb-auto'>
           <ul className='inline-flex space-x-6 mx-2'>
 
           {isAuthenticated && user ? (
@@ -77,9 +75,25 @@ const Navbar = () => {
                   {user.username}
                 </Link>
               </li>
-              <li>
-                <FontAwesomeIcon className='cursor' icon={faGripVertical} />
+              <li onClick={toggleMenu}>
+                <FontAwesomeIcon className='cursor icon' icon={isOpenMenu ? faGripVertical : faGrip} size='lg' />
               </li>
+              {isOpenMenu && (
+                <ul className='dropdown__menu'>
+                  <li className='icon cursor'>Profile</li>
+                  <li className='icon cursor'>Settings</li>
+                  <li>
+                    {isMobile ? 
+                    <LogoutView>
+                      <FontAwesomeIcon className='icon' icon={faRightFromBracket} size='lg'/> 
+                    </LogoutView> : 
+                    <LogoutView>
+                      <p className='icon'>Logout <FontAwesomeIcon icon={faRightFromBracket}/> </p>
+                    </LogoutView>
+                    }
+                </li>
+                </ul>
+              )}
             </>
           ) : (
             <></>

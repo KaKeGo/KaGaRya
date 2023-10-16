@@ -28,3 +28,24 @@
     font-size: 16px;
     font-weight: 600;
 }
+
+.dropdown__menu {
+    position: absolute;
+    right: 0;
+    top: 44px;
+    background-color: rgba(20, 17, 98, 1);
+    border: solid rgba(6, 7, 108, 0.8);
+    border-radius: 6px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(6, 7, 108, 0.6);
+    z-index: 1;
+    font-weight: 400;
+}
+
+.dropdown__menu li {
+    /* border-top: 2px solid rgba(6, 7, 108, 0.8); */
+    padding: 4px 8px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
