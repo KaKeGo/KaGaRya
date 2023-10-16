@@ -29,6 +29,7 @@ const LoginView = () => {
   useEffect(() => {
     if (loginStatus === 'succeeded') {
       navigate('/')
+      window.location.reload()
     }
   }, [loginStatus, navigate])
 
