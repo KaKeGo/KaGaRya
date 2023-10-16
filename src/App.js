@@ -1,10 +1,16 @@
 import Layout from "./layout/Layout";
 import { Routes, Route } from 'react-router-dom'
 
+{/* Content */}
 import Home from './content/Home/Home/Home'
+import NewsView from './content/News/NewsView'
+import AboutView from './content/About/AboutView'
+{/* User */}
 import LoginView from './content/Account/Login/LoginView'
-import Register from './content/Account/Register/Register'
-import Profile from "./content/Account/Profile/Profile";
+import RegisterView from "./content/Account/Register/RegisterView";
+import Profile from './content/Account/Profile/Profile'
+{/* Game list */}
+import GameListView from './content/GamesList/GameList/GameListView'
 
 
 function App() {
@@ -13,10 +19,19 @@ function App() {
         <Layout>
           <Routes>
 
+            {/* Content */}
             <Route path="/" element={<Home />}/>
+            <Route path="/news" element={<NewsView />}/>
+            <Route path="/about" element={<AboutView />}/>
+
+            {/* User */}
             <Route path="/login" element={<LoginView />}/>
-            <Route path="/register" element={<Register />}/>
+            <Route path="/register" element={<RegisterView />}/>
             <Route path="/profile" element={<Profile />}/>
+            
+
+            {/* Game list */}
+            <Route path="/game/list" element={<GameListView />}/>
 
           </Routes>
         </Layout>

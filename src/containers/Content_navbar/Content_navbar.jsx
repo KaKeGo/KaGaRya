@@ -6,12 +6,15 @@ import './Content_navbar.css'
 const Content_navbar = () => {
   return (
     <nav className='mb-4 mx-2 content_navbar'>
-        <div className='flex p-4'>
-            <div>
+        <div className='p-4'>
+            <div className='nav__links'>
 
                 <ul>
-                    <li>
-
+                    <li className='icon'>
+                      <Link to='game/list'>Games</Link>
+                    </li>
+                    <li className='icon'>
+                      <Link to='game/list'>Anime</Link>
                     </li>
                 </ul>
 

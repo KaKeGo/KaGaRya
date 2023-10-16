@@ -8,7 +8,7 @@ import CSRFToken from '../../../CSRFToken'
 
 
 
-const Register = () => {
+const RegisterView = () => {
   return (
     <FadeIn>
     <div className='register__page'>
@@ -85,4 +85,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterView

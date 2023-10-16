@@ -61,6 +61,12 @@ const Navbar = () => {
                 </li>
               </>
             )}
+              <li className='icon'>
+                <Link to='/news'>News</Link>
+              </li>
+              <li className='icon'>
+                <Link to='/about'>About</Link>
+              </li>
             </ul>
           </div>
 
