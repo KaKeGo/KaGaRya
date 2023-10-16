@@ -30,10 +30,9 @@ const RegisterView = () => {
     }
 
     try {
-      const actionResult = await dispatch(Register({ 
+      await dispatch(Register({ 
         username, email, password, confirm_password: confirmPassword 
       }))
-      const originalPromiseResult = unwrapResult(actionResult)
       navigate('/register/completed')
     } catch (rejectedValueOrSerializedError) {
       console.log(rejectedValueOrSerializedError)
