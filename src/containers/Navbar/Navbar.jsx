@@ -40,27 +40,6 @@ const Navbar = () => {
           
           <div>
             <ul className='inline-flex space-x-6'>
-            {isAuthenticated ? (
-              <li>
-              </li>
-            ) : (
-              <>
-                <li>
-                  <Link to='/register'>
-                    {isMobile ? <FontAwesomeIcon className='icon' icon={faUserPlus} size='lg' /> :
-                    <p className='icon'>Register <FontAwesomeIcon icon={faUserPlus}/></p>
-                    }
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/login'>
-                    {isMobile ? <FontAwesomeIcon className='icon' icon={faRightToBracket} size='lg'/> :
-                    <p className='icon'>Login <FontAwesomeIcon icon={faRightToBracket} /></p>
-                    }
-                  </Link>
-                </li>
-              </>
-            )}
               <li className='icon'>
                 <Link to='/news'>News</Link>
               </li>
@@ -115,7 +94,22 @@ const Navbar = () => {
               )}
             </>
           ) : (
-            <></>
+            <>
+            <li>
+              <Link to='/register'>
+                {isMobile ? <FontAwesomeIcon className='icon' icon={faUserPlus} size='lg' /> :
+                <p className='icon'>Register <FontAwesomeIcon icon={faUserPlus}/></p>
+                }
+              </Link>
+            </li>
+            <li>
+              <Link to='/login'>
+                {isMobile ? <FontAwesomeIcon className='icon' icon={faRightToBracket} size='lg'/> :
+                <p className='icon'>Login <FontAwesomeIcon icon={faRightToBracket} /></p>
+                }
+              </Link>
+            </li>
+            </>
           )}
           </ul>
         </div>
