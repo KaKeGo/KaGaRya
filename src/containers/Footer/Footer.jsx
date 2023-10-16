@@ -26,11 +26,11 @@ const Footer = () => {
                 <li>
                     <a 
                     href='https://www.facebook.com/profile.php?id=61552374331657'>
-                        <FontAwesomeIcon icon={faFacebook} />
+                        <FontAwesomeIcon className='icon' icon={faFacebook} size='lg' />
                     </a>
                 </li>
-                  <li><a href='#'><FontAwesomeIcon icon={faInstagram} /></a></li>
-                  <li><a href='#'><FontAwesomeIcon icon={faTiktok} /></a></li>
+                  <li><a href='#'><FontAwesomeIcon className='icon' icon={faInstagram} size='lg' /></a></li>
+                  <li><a href='#'><FontAwesomeIcon className='icon' icon={faTiktok} size='lg' /></a></li>
               </ul>
               </div>
           </div>

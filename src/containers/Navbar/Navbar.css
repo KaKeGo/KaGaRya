@@ -13,5 +13,18 @@
 
 .site__logo {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
+}
+
+.icon {
+    transition: 0.3s ease;
+}
+
+.icon:hover {
+    color: rgba(218, 184, 249, 0.9);
+}
+
+.nav__middle {
+    font-size: 16px;
+    font-weight: 600;
 }

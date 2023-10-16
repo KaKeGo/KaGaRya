@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
@@ -18,20 +18,12 @@ const LoginView = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const loginStatus = useSelector(state => state.login.status)
-  const loginError = useSelector(state => state.login.error)
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    dispatch(Login({ email, password }))
+    await dispatch(Login({ email, password }))
+    navigate('/')
+    window.location.reload()
   }
-
-  useEffect(() => {
-    if (loginStatus === 'succeeded') {
-      navigate('/')
-      window.location.reload()
-    }
-  }, [loginStatus, navigate])
 
   return (
     <FadeIn>

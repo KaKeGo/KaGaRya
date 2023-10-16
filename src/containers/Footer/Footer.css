@@ -44,3 +44,11 @@
     font-size: 20px;
     text-decoration: none;
 }
+
+.icon {
+    transition: 0.3s ease;
+}
+
+.icon:hover {
+    color: rgba(218, 184, 249, 0.9);
+}
