@@ -49,3 +49,12 @@
     display: block;
     text-align: center;
 }
+
+@media (max-width: 1200px) {
+  }
+
+@media (max-width: 600px) {
+    .dropdown__menu {
+        min-width: 80px;
+    }
+  }

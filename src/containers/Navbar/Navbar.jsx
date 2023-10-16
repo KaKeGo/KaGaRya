@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
-  faGripVertical, faRightToBracket, faUserPlus, faRightFromBracket, faGrip
+  faGripVertical, faRightToBracket, faUserPlus, faRightFromBracket, faGrip, faGear,
+  faUser
 } from '@fortawesome/free-solid-svg-icons'
 
 import './Navbar.css'
@@ -80,8 +81,20 @@ const Navbar = () => {
               </li>
               {isOpenMenu && (
                 <ul className='dropdown__menu'>
-                  <li className='icon cursor'>Profile</li>
-                  <li className='icon cursor'>Settings</li>
+                  <li className='icon cursor'>
+                    {isMobile ? 
+                      <FontAwesomeIcon icon={faUser} size="lg" />
+                      : 
+                      <p className='icon'>Profile <FontAwesomeIcon icon={faUser} /></p>
+                    }
+                  </li>
+                  <li className='icon cursor'>
+                    {isMobile ? 
+                      <FontAwesomeIcon icon={faGear} size="lg" /> 
+                      : 
+                      <p className='icon'>Settings <FontAwesomeIcon icon={faGear} /></p>
+                    }
+                  </li>
                   <li>
                     {isMobile ? 
                     <LogoutView>
