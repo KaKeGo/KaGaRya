@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { unwrapResult } from '@reduxjs/toolkit'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 
@@ -12,13 +14,14 @@ import { Register } from '../../../slice/Accounts/Register/registerSlice'
 
 const RegisterView = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (password !== confirmPassword) {
@@ -26,9 +29,15 @@ const RegisterView = () => {
       return
     }
 
-    dispatch(Register({ 
-      username, email, password, confirm_password: confirmPassword 
-    }))
+    try {
+      const actionResult = await dispatch(Register({ 
+        username, email, password, confirm_password: confirmPassword 
+      }))
+      const originalPromiseResult = unwrapResult(actionResult)
+      navigate('/register/completed')
+    } catch (rejectedValueOrSerializedError) {
+      console.log(rejectedValueOrSerializedError)
+    }
   }
 
   return (
