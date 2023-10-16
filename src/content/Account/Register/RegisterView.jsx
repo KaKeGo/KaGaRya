@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 
 import './Register.css'
 
 import CSRFToken from '../../../CSRFToken'
+import { Register } from '../../../slice/Accounts/Register/registerSlice'
 
 
 
 const RegisterView = () => {
+  const dispatch = useDispatch()
+
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match')
+      return
+    }
+
+    dispatch(Register({ 
+      username, email, password, confirm_password: confirmPassword 
+    }))
+  }
+
   return (
     <FadeIn>
     <div className='register__page'>
@@ -19,7 +41,7 @@ const RegisterView = () => {
         </div>
 
         <div>
-          <form>
+          <form onSubmit={handleSubmit}>
           <CSRFToken />
 
 
@@ -31,6 +53,8 @@ const RegisterView = () => {
                 type='text'
                 placeholder='Username'
                 required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </label>
           </div>
@@ -43,6 +67,8 @@ const RegisterView = () => {
                 type='email'
                 placeholder='mail@example.com'
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
           </div>
@@ -55,6 +81,8 @@ const RegisterView = () => {
                 type='password'
                 placeholder='Password'
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </label>
           </div>
@@ -67,6 +95,8 @@ const RegisterView = () => {
                 type='password'
                 placeholder='Confirm password'
                 required
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </label>
           </div>
