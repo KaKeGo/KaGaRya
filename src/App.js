@@ -9,6 +9,7 @@ import AboutView from './content/About/AboutView'
 import LoginView from './content/Account/Login/LoginView'
 import RegisterView from "./content/Account/Register/RegisterView";
 import RegisterCompleted from "./containers/Pages/RegisterCompleted/RegisterCompleted";
+import AccountActivated from "./containers/Pages/AccountActivated/AccountActivated";
 import Profile from './content/Account/Profile/Profile'
 {/* Game list */}
 import GameListView from './content/GamesList/GameList/GameListView'
@@ -29,8 +30,8 @@ function App() {
             <Route path="/login" element={<LoginView />}/>
             <Route path="/register" element={<RegisterView />}/>
             <Route path="/register/completed" element={<RegisterCompleted />}/>
+            <Route path="/accounts/activate/" element={<AccountActivated />}/>
             <Route path="/profile" element={<Profile />}/>
-            
 
             {/* Game list */}
             <Route path="/game/list" element={<GameListView />}/>
