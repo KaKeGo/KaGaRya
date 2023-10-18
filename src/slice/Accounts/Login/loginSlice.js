@@ -6,7 +6,7 @@ import Cookies from "js-cookie"
 
 export const Login = createAsyncThunk(
     'user/login',
-    async (userCredentials) => {
+    async (userCredentials, { rejectWithValue }) => {
         
         const csrftoken = Cookies.get('csrftoken')
 
@@ -26,8 +26,8 @@ export const Login = createAsyncThunk(
                 config,
             )
             return response.data
-        } catch (error) {
-            throw new Error('Cant login: ' + error.message)
+        } catch (err) {
+            return rejectWithValue(err.response.data)
         }
     }
 )
