@@ -1,8 +1,10 @@
 import React from 'react'
 
+import './GameList.css'
+
 const GameListView = () => {
   return (
-    <div>GameList</div>
+    <div className='gamelist__container'>GameList</div>
   )
 }
 
