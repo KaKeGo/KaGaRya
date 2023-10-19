@@ -6,7 +6,7 @@ import loginReducer from './slice/Accounts/Login/loginSlice'
 import logoutReducer from './slice/Accounts/Logout/logoutSlice'
 import authUserCheckReducer from './slice/Accounts/AuthUserCheck/authUserCheck'
 // Game List
-import gameListSlice from './slice/GameLists/GameList/gameListSlice'
+import gameListReducer from './slice/GameLists/GameList/gameListSlice'
 
 
 const store = configureStore({
@@ -17,7 +17,7 @@ const store = configureStore({
         login: loginReducer,
         logout: logoutReducer,
         // Game List
-        gameList: gameListSlice
+        gameList: gameListReducer,
     }
 })
 

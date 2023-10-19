@@ -14,7 +14,7 @@ import AccountActivated from "./containers/Pages/AccountActivated/AccountActivat
 import AccountActivatedError from "./containers/Pages/AccountActivated/AccountActivatedError/AccountActivatedError";
 import Profile from './content/Account/Profile/Profile'
 {/* Game list */}
-import GameListView from './content/GamesList/GameList/GameListView'
+import GomeHomeView from "./content/GamesList/GameHome/GomeHomeView";
 
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
             <Route path="/profile" element={<Profile />}/>
 
             {/* Game list */}
-            <Route path="/game/list" element={<GameListView />}/>
+            <Route path="/game/list" element={<GomeHomeView />}/>
 
           </Routes>
         </Layout>

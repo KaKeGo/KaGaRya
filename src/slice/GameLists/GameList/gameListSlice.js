@@ -3,7 +3,7 @@ import axios from "axios"
 
 import { DEV_URL } from '../../../apiConfig'
 
-export const GamesList = createAsyncThunk(
+export const GameList = createAsyncThunk(
     'games/gamesList',
     async (gamesCredentials, { rejectWithValue }) => {
         try {
@@ -11,6 +11,7 @@ export const GamesList = createAsyncThunk(
                 `${DEV_URL}games/`,
                 gamesCredentials,
             )
+            return response.data
         } catch (err) {
             return rejectWithValue(err.response.data)
         }
@@ -30,14 +31,14 @@ export const gameListSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(GamesList.pending, (state) => {
+            .addCase(GameList.pending, (state) => {
                 state.status = 'loading'
             })
-            .addCase(GamesList.fulfilled, (state, action) => {
-                state.status = succeeded
+            .addCase(GameList.fulfilled, (state, action) => {
+                state.status = 'succeeded'
                 state.games = action.payload
             })
-            .addCase(GamesList.rejected, (state, action) => {
+            .addCase(GameList.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.error.message
             })
