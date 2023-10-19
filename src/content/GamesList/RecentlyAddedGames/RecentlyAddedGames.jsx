@@ -10,10 +10,6 @@ const RecentlyAddedGames = () => {
     <div className='recently__games_comp'>
         <div className='column__1'>
 
-            <div className='recently__games__title'>
-                <h2>Last added games</h2>
-            </div>
-
             <div className='recently__games__container'>
                 <div className='recently__games__box'>
                     <div className='recently__games__content'>
@@ -52,16 +48,6 @@ const RecentlyAddedGames = () => {
                 </div>
             </div>
 
-        </div>
-
-        <div className='column__2'>
-            <div className='recently__games__title'>
-                <h2>News</h2>
-            </div>
-
-            <div className='recently__news__container'>
-                <CommingSoonView /> 
-            </div>
         </div>
 
     </div>

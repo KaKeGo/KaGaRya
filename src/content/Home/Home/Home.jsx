@@ -1,8 +1,9 @@
 import React from 'react'
 
 import './Home.css'
-import RecentlyAddedGames from '../../GamesList/RecentlyAddedGames/RecentlyAddedGames'
+
 import FadeInAnimation from '../../../animations/FadeIn/FadeIn'
+import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
         <div className='home__tables'>
 
           <div>
-            <RecentlyAddedGames />
+            <CommingSoonView />
           </div>
 
         </div>

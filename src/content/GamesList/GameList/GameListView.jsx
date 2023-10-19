@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
@@ -17,6 +19,7 @@ const GameListView = () => {
       dispatch(GameList())
     }
   }, [status, dispatch])
+  console.log(games)
 
   const handlePrevPage = () => {
     if (games.previous) {
@@ -33,17 +36,30 @@ const GameListView = () => {
     return <div>Loading...</div>
   } else if (status === 'succeeded') {
     return (
-      <div>
+      <div className='game__container'>
 
-        <ul>
-          {games.results && games.results.map((game) =>(
-            <li key={game.id}>{game.title}</li>
+        <div className='game__column1'>
+        {games.results && games.results.map((game) =>(
+        <div className='games__box' key={game.id}>
+
+            <img className='game_icon' src='https://get.wallhere.com/photo/video-games-Battlefield-Battlefield-4-screenshot-computer-wallpaper-stunt-performer-special-effects-pc-game-action-film-154724.jpg'/>
+            <div className='games__title'>
+              <h2>{game.title}</h2>
+            </div>
+
+          </div>
           ))}
-        </ul>
+        </div>
 
-        <div>
-          <button onClick={handlePrevPage} disabled={!games.previous}>Previous</button>
-          <button onClick={handleNextPage} disabled={!games.next}>Next</button>
+        <div className='game__column2'>
+          <div className='game__pagination'>
+            <button onClick={handlePrevPage} disabled={!games.previous}>
+              <FontAwesomeIcon icon={faChevronLeft} size='lg' />Previous
+            </button>
+            <button onClick={handleNextPage} disabled={!games.next}>
+              Next<FontAwesomeIcon icon={faChevronRight} size='lg' />
+            </button>
+          </div>
         </div>
 
       </div>
