@@ -24,8 +24,8 @@ const initialState = {
     error: null,
 }
 
-export const gamesSlice = createSlice({
-    name: 'games',
+export const gameListSlice = createSlice({
+    name: 'gameList',
     initialState: initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -44,4 +44,4 @@ export const gamesSlice = createSlice({
     }
 })
 
-export default gamesSlice.reducer
+export default gameListSlice.reducer
