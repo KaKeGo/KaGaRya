@@ -109,8 +109,8 @@ const RegisterView = () => {
             </label>
           </div>
 
-          <div className='register__button'>
-            <button type='submit'>Register</button>
+          <div>
+            <button className='register__button' type='submit'>Register</button>
           </div>
 
 

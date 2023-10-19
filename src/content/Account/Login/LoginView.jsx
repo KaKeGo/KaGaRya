@@ -66,8 +66,8 @@ const LoginView = () => {
               </label>
             </div>
 
-            <div className='login__button'>
-              <button type='submit'>Login</button>
+            <div>
+              <button className='login__button' type='submit'>Login</button>
             </div>
 
           </form>
