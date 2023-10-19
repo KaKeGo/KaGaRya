@@ -5,11 +5,10 @@ import { DEV_URL } from '../../../apiConfig'
 
 export const GameList = createAsyncThunk(
     'games/gamesList',
-    async (gamesCredentials, { rejectWithValue }) => {
+    async (url, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                `${DEV_URL}games/`,
-                gamesCredentials,
+                url || `${DEV_URL}games/`,
             )
             return response.data
         } catch (err) {

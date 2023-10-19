@@ -20,12 +20,12 @@ const GameListView = () => {
 
   const handlePrevPage = () => {
     if (games.previous) {
-      dispatch(GameList({ url: games.previous }))
+      dispatch(GameList(games.previous))
     }
   }
   const handleNextPage = () => {
     if (games.next) {
-      dispatch(GameList({ url: games.next }))
+      dispatch(GameList(games.next))
     }
   }
 
