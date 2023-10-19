@@ -1,13 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
+import { DEV_URL } from '../../../apiConfig'
 
 export const GamesList = createAsyncThunk(
     'games/gamesList',
     async (gamesCredentials, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                'http://localhost:8000/games/',
+                `${DEV_URL}games/`,
                 gamesCredentials,
             )
         } catch (err) {
