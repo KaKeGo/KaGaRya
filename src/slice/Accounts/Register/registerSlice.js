@@ -2,6 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import Cookies from "js-cookie"
 
+import { DEV_URL } from "../../../apiConfig"
+
 
 export const Register = createAsyncThunk(
     'user/register',
@@ -19,7 +21,7 @@ export const Register = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `http://localhost:8000/accounts/profile/create/`,
+                `${DEV_URL}accounts/profile/create/`,
                 userCredentials,
                 config,
             )

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from 'axios'
 import Cookies from "js-cookie"
 
+import { DEV_URL } from "../../../apiConfig"
 
 
 export const Login = createAsyncThunk(
@@ -21,7 +22,7 @@ export const Login = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `http://localhost:8000/accounts/profile/login/`,
+                `${DEV_URL}accounts/profile/login/`,
                 userCredentials,
                 config,
             )

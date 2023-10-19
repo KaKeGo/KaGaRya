@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
+import { DEV_URL } from "../../../apiConfig"
+
 import { Login } from "../Login/loginSlice"
 import { Logout } from '../Logout/logoutSlice'
 
@@ -10,7 +12,7 @@ export const checkAuth = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                `http://localhost:8000/accounts/authcheck/`,
+                `${DEV_URL}accounts/authcheck/`,
             )
             return response.data
         } catch (err) {
