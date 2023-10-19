@@ -1,0 +1,15 @@
+
+.arrow__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow__container svg {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(218, 184, 249, 0.9);
+}

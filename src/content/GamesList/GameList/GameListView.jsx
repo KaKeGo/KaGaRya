@@ -5,7 +5,10 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 
 import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
+import GameMenu from '../../../containers/GameMenu/GameMenu'
+
 import './GameList.css'
+
 
 
 const GameListView = () => {
@@ -44,6 +47,7 @@ const GameListView = () => {
 
             <img className='game_icon' src='https://get.wallhere.com/photo/video-games-Battlefield-Battlefield-4-screenshot-computer-wallpaper-stunt-performer-special-effects-pc-game-action-film-154724.jpg'/>
             <div className='games__title'>
+              <GameMenu />
               <h2>{game.title}</h2>
             </div>
 

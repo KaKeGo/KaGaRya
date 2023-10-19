@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
+import GameMenu from '../../../containers/GameMenu/GameMenu'
 
 import './RecentlyAddedGames.css'
 
@@ -15,7 +16,10 @@ const RecentlyAddedGames = () => {
                     <div className='recently__games__content'>
                         <img className='game__icon'
                             src='https://c4.wallpaperflare.com/wallpaper/393/143/799/assassins-creed-the-ezio-collection-4k-wallpaper-preview.jpg'/>
-                        <div className='game__title'>Assassin Creed 2</div>
+                        <div className='game__title'>
+                            <GameMenu />
+                            Assassin Creed 2
+                        </div>
                     </div>
                 </div>
                 <div className='recently__games__box'>
