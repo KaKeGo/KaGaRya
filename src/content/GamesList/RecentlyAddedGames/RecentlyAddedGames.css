@@ -63,6 +63,11 @@
     text-align: center;
 }
 
+.recently__news__container {
+    height: 100%;
+    width: 100%;
+}
+
 @media (max-width: 1224px) {
     .column__1 {
         flex: 60%;

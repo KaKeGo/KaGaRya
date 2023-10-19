@@ -2,6 +2,8 @@ import React from 'react'
 
 import './CommingSoon.css'
 
+import cms from '../../resorces/commingSoon/cms.gif'
+
 
 const CommingSoonView = () => {
   return (
@@ -9,6 +11,7 @@ const CommingSoonView = () => {
 
         <div>
             <h2>Comming soon...</h2>
+            <img src={cms} />
         </div>
 
     </div>

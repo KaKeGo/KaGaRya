@@ -1,5 +1,7 @@
 import React from 'react'
 
+import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
+
 import './RecentlyAddedGames.css'
 
 
@@ -55,6 +57,10 @@ const RecentlyAddedGames = () => {
         <div className='column__2'>
             <div className='recently__games__title'>
                 <h2>News</h2>
+            </div>
+
+            <div className='recently__news__container'>
+                <CommingSoonView /> 
             </div>
         </div>
 
