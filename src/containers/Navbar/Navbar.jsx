@@ -67,18 +67,22 @@ const Navbar = () => {
               {isOpenMenu && (
                 <ul className='dropdown__menu'>
                   <li className='icon cursor'>
+                    <Link to={`profile/${user.slug}`}>
                     {isMobile ? 
                       <FontAwesomeIcon icon={faUser} size="lg" />
                       : 
                       <p className='icon'>Profile <FontAwesomeIcon icon={faUser} /></p>
                     }
+                    </Link>
                   </li>
                   <li className='icon cursor'>
+                    <Link to='/profile/settings'>
                     {isMobile ? 
                       <FontAwesomeIcon icon={faGear} size="lg" /> 
                       : 
                       <p className='icon'>Settings <FontAwesomeIcon icon={faGear} /></p>
                     }
+                    </Link>
                   </li>
                   <li>
                     {isMobile ? 

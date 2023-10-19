@@ -1,12 +1,15 @@
 import React from 'react'
+
+import './Settings.css'
 import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
-const Profile = () => {
+
+const Settings = () => {
   return (
-    <div className='containers'>
+    <div>
       <CommingSoonView />
     </div>
   )
 }
 
-export default Profile
+export default Settings

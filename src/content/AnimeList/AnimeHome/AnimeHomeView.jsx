@@ -1,7 +1,9 @@
 import React from 'react'
+
 import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
-const Profile = () => {
+
+const AnimeHomeView = () => {
   return (
     <div className='containers'>
       <CommingSoonView />
@@ -9,4 +11,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default AnimeHomeView
