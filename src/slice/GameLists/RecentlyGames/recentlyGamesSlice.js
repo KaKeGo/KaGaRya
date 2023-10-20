@@ -36,7 +36,7 @@ const recentlyGamesSlice = createSlice({
             })
             .addCase(RecentlyGames.fulfilled, (state, action) => {
                 state.status = 'succeeded'
-                state.games = state.games.concat(action.payload)
+                state.games = action.payload
             })
             .addCase(RecentlyGames.rejected, (state, action) => {
                 state.status = 'failed'

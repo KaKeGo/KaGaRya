@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { RecentlyGames } from '../../../slice/GameLists/RecentlyGames/recentlyGamesSlice'
 
 import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 import GameMenu from '../../../containers/GameMenu/GameMenu'
@@ -7,55 +10,40 @@ import './RecentlyAddedGames.css'
 
 
 const RecentlyAddedGames = () => {
-  return (
-    <div className='recently__games_comp'>
-        <div className='column__1'>
+    const dispatch = useDispatch()
+    const { games, status, error } = useSelector((state) => state.recentlyGames)
 
-            <div className='recently__games__container'>
-                <div className='recently__games__box'>
-                    <div className='recently__games__content'>
-                        <img className='game__icon'
-                            src='https://c4.wallpaperflare.com/wallpaper/393/143/799/assassins-creed-the-ezio-collection-4k-wallpaper-preview.jpg'/>
+    useEffect(() => {
+        if (status === 'idle') {
+            dispatch(RecentlyGames())
+        }
+    }, [status, dispatch])
+
+    if (status === 'loading') {
+        return <div>Loading...</div>
+    } else if (status === 'succeeded') {
+        return (
+            <div className='recently__games__comp'>
+                <div className='recently__games__container'>
+                {games.map((game) => (
+                    <div className='recently__games__box' key={game.id}>
+                        <div className='recently__games__content'>
+                        <img className='game__icon' src={game.cover} />
                         <div className='game__title'>
                             <GameMenu />
-                            Assassin Creed 2
+                            {game.title}
+                        </div>
                         </div>
                     </div>
-                </div>
-                <div className='recently__games__box'>
-                    <div className='recently__games__content'>
-                    <img className='game__icon'
-                            src='https://images8.alphacoders.com/414/414551.jpg'/>
-                            <div className='game__title'>Splinter Cell: Black List</div>
-                    </div>
-                </div>
-                <div className='recently__games__box'>
-                    <div className='recently__games__content'>
-                        <img className='game__icon'
-                            src='https://wallpapers.com/images/featured-full/best-gaming-background-n1s8zlfrny49wo0q.jpg'/>
-                        <div className='game__title'>Wolvenstein: New order</div>
-                    </div>
-                </div>
-                <div className='recently__games__box'>
-                <div className='recently__games__content'>
-                    <img className='game__icon'
-                        src='https://getwallpapers.com/wallpaper/full/a/8/f/33274.jpg'/>
-                        <div className='game__title'>Mortal Combat 11</div>
-                    </div>
-                </div>
-                <div className='recently__games__box'>
-                <div className='recently__games__content'>
-                    <img className='game__icon'
-                        src='https://getwallpapers.com/wallpaper/full/a/7/f/33098.jpg'/>
-                    <div className='game__title'>Hitman 4</div>
-                    </div>
+                ))}
                 </div>
             </div>
+        )
+    } else if (status === 'failed') {
+        return <div>Error: {error}</div>
+    }
 
-        </div>
-
-    </div>
-  )
+    return null
 }
 
 export default RecentlyAddedGames

@@ -19,6 +19,7 @@
 }
 
 .gamelist__column1 {
+    flex: 1;
     flex: 70%;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .premieres__column {
-    height: 93%;
+    height: 100%;
     border-right: 2px solid rgba(6, 7, 108, 0.2);
     border-bottom: 2px solid rgba(6, 7, 108, 0.2);
 }

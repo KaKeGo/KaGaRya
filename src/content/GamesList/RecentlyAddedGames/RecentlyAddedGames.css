@@ -1,26 +1,10 @@
 
-.recently__games_comp {
+.b {
+    border: solid 1px black;
+}
+
+.recently__games__comp {
     display: flex;
-}
-
-.column__1 {
-    flex: 75%;
-}
-
-.column__2 {
-    flex: 25%;
-}
-
-.recently__games__title {
-    background-color: rgba(6, 7, 108, 0.8);
-    color: white;
-}
-
-.recently__games__title h2 {
-    margin-left: 15px;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 500;
 }
 
 .recently__games__container {
@@ -40,7 +24,6 @@
     border-left: 2px solid rgba(6, 7, 108, 0.3);
     border-right: 2px solid rgba(6, 7, 108, 0.3);
     border-bottom: 2px solid rgba(6, 7, 108, 0.3);
-    min-height: 200px;
 }
 
 .game__icon {
