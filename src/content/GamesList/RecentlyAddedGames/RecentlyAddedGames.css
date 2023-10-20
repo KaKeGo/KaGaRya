@@ -51,7 +51,7 @@
     width: 100%;
 }
 
-@media (max-width: 1224px) {
+@media (max-width: 1220px) {
     .column__1 {
         flex: 60%;
     }
@@ -80,24 +80,8 @@
         display: none;
     }
     .recently__games__box {
-      width: 33.33%;
+      width: 50%;
     }
   }
 
-@media (max-width: 1224px) {
-    .recently__games__box:nth-last-child(-n+2) {
-        width: 50%;
-    }
-}
 
-@media (max-width: 900px) {
-    .recently__games__box:nth-last-child(-n+1) {
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) and (min-width: 400px) {
-    .recently__games__box:nth-last-child(-n+2) {
-    width: 50%;
-    }
-}

@@ -11,17 +11,15 @@ const GomeHomeView = () => {
   return (
     <div className='containers gamehome__container'>
 
-      <div className='gamehome__column1'>
+      <div className='gamehome__column1 b'>
         <div className='gamelist__column1'>
 
           <div className='headline__title'>
             <h2>Last added games</h2>
           </div>
-
-          <div className=''>
+          <div className='recently__games__comp'>
             <RecentlyAddedGames />
           </div>
-
         </div>
         <div className='gamelist__column2'>
 
@@ -36,7 +34,7 @@ const GomeHomeView = () => {
         </div>
       </div>
 
-      <div className='gamehome__column2'>
+      <div className='gamehome__column2 b'>
         <div className='gamelist__column1'>
 
           <div className='headline__title'>

@@ -11,19 +11,24 @@
     margin-right: 5px;
 }
 
-.gamehome__column1,
-.gamehome__column2 {
+.gamehome__column1 {
     display: flex;
+  }
+  
+.gamehome__column2 {
     flex: 1;
-    width: 100%;
+  }
+.recently__games__comp {
+    height: 100%;
 }
 
 .gamelist__column1 {
-    flex: 1;
     flex: 70%;
+    height: 100%;
 }
 
 .gamelist__column2 {
+    height: 100%;
     flex: 30%;
 }
 
