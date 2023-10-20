@@ -2,14 +2,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import Cookies from "js-cookie"
 
-import { DEV_URL } from "../../../apiConfig"
+import { DEV_URL, AKI } from "../../../apiConfig"
 
 
 export const Logout = createAsyncThunk(
     'user/logout',
     async (_, { rejectWithValue }) => {
         try {
-            const csrftoken = Cookies.get('csrftoken')
+            const csrftoken = Cookies.get('kejki')
 
             const response = await axios.post(
                 `${DEV_URL}accounts/profile/logout/`,

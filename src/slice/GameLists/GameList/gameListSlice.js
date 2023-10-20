@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
-import { DEV_URL } from '../../../apiConfig'
+import { DEV_URL, AKI } from '../../../apiConfig'
 
 export const GameList = createAsyncThunk(
     'games/gamesList',
     async (url, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                url || `${DEV_URL}games/`,
+                url || `${AKI}games/`,
             )
             return response.data
         } catch (err) {

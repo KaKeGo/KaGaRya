@@ -8,7 +8,7 @@ import { DEV_URL } from "../../../apiConfig"
 export const Register = createAsyncThunk(
     'user/register',
     async (userCredentials, { rejectWithValue }) => {
-        const csrftoken = Cookies.get('csrftoken')
+        const csrftoken = Cookies.get('kejki')
 
         const config = {
             headers: {

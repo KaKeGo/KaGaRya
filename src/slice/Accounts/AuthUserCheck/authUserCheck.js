@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
-import { DEV_URL } from "../../../apiConfig"
+import { DEV_URL, AKI } from "../../../apiConfig"
 
 import { Login } from "../Login/loginSlice"
 import { Logout } from '../Logout/logoutSlice'
