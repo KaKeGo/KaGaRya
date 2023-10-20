@@ -26,11 +26,6 @@ function App() {
 
             {/* Content */}
             <Route path="/" element={<Home />}/>
-<<<<<<< HEAD
-            <Route path="/login" element={<Login />}/>
-            <Route path="/register" element={<Register />}/>
-            <Route path="/about" element={<About />}/>
-=======
             <Route path="/news" element={<NewsView />}/>
             <Route path="/about" element={<AboutView />}/>
 
@@ -47,7 +42,6 @@ function App() {
             <Route path="/game/list" element={<GomeHomeView />}/>
             {/* AnimeList */}
             <Route path="/anime/list" element={<AnimeHomeView/>} />
->>>>>>> recentlygames
 
           </Routes>
         </Layout>

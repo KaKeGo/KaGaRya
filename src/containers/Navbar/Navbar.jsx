@@ -46,16 +46,6 @@ const Navbar = () => {
               <li className='icon'>
                 <Link to='/about'>About</Link>
               </li>
-<<<<<<< HEAD
-              <li>
-                <Link to='/logout'>Logout</Link>
-              </li>
-              <li>
-                <Link to='/about'>About</Link>
-              </li>
-
-=======
->>>>>>> recentlygames
             </ul>
           </div>
 
