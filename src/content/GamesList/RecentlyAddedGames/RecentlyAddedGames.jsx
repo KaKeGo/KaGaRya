@@ -41,20 +41,16 @@ const RecentlyAddedGames = () => {
         return <div>Loading...</div>
     } else if (status === 'succeeded') {
         return (
-            <div className='recently__games__comp'>
-                <div className='recently__games__container'>
-                {showGames.map((game) => (
-                    <div className='recently__games__box' key={game.id}>
-                        <div className='recently__games__content'>
-                        <img className='game__icon' src={game.cover} />
-                        <div className='game__title'>
-                            <GameMenu />
-                            {game.title}
-                        </div>
-                        </div>
+            <div className='recently__games__container'>
+            {showGames.map((game) => (
+                <div className='recently__games__box' key={game.id}>
+                    <img className='game__icon' src={game.cover} />
+                    <div className='game__title'>
+                        <GameMenu />
+                        {game.title}
                     </div>
-                ))}
                 </div>
+            ))}
             </div>
         )
     } else if (status === 'failed') {

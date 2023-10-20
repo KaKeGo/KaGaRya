@@ -11,7 +11,7 @@ const GomeHomeView = () => {
   return (
     <div className='containers gamehome__container'>
 
-      <div className='gamehome__column1 b'>
+      <div className='gamehome__column1'>
         <div className='gamelist__column1'>
 
           <div className='headline__title'>
@@ -34,7 +34,7 @@ const GomeHomeView = () => {
         </div>
       </div>
 
-      <div className='gamehome__column2 b'>
+      <div className='gamehome__column2'>
         <div className='gamelist__column1'>
 
           <div className='headline__title'>
