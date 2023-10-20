@@ -3,8 +3,8 @@
     display: flex;
     justify-content:  center;
     align-items: center;
-    margin-top: 100px;
     color: white;
+    min-height: calc(70vh);
 }
 
 .login__box {
@@ -63,7 +63,7 @@
     }
   }
 
-@media (max-width: 760px) {
+@media (max-width: 600px) {
     .login__box {
       width: 90%;
     }

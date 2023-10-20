@@ -1,0 +1,37 @@
+
+.mess__info__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mess__info__content {
+    border: solid 4px rgba(232, 222, 7, 0.8);
+    border-radius: 15px;
+    background-color: rgba(232, 222, 7, 0.4);
+    width: 80%;
+    padding: 12px;
+}
+
+.mess__info__title {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+}
+
+.mess__info__body {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.link {
+    text-decoration: underline;
+    font-weight: bold;
+    color: rgba(85, 0, 71);
+}

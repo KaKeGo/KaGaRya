@@ -3,3 +3,27 @@
     background-color: rgba(6, 7, 108, 0.8);
     border-radius: 8px;
 }
+
+.nav__links ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: auto;
+    color: white;
+    font-weight: 600;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav__links ul li {
+    margin: 0 10px;
+}
+.icon {
+    transition: 0.3s ease;
+}
+
+.icon:hover {
+    color: rgba(218, 184, 249, 0.9);
+}
