@@ -1,11 +1,30 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 
 import './Login.css'
 
+import CSRFToken from '../../../CSRFToken'
+import { Login } from '../../../slice/Accounts/Login/loginSlice'
 
-const Login = () => {
+
+
+const LoginView = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await dispatch(Login({ email, password }))
+    navigate('/')
+    window.location.reload()
+  }
+
   return (
     <FadeIn>
     <div className='login__page'>
@@ -16,7 +35,8 @@ const Login = () => {
         </div>
 
         <div>
-          <form>
+          <form onSubmit={handleSubmit}>
+            <CSRFToken />
 
             <div>
               <label className='input__label'>
@@ -25,6 +45,8 @@ const Login = () => {
                   className='input__field'
                   type='email'
                   placeholder='mail@example.com'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </label>
@@ -37,13 +59,15 @@ const Login = () => {
                   className='input__field'
                   type='password'
                   placeholder='Password'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </label>
             </div>
 
-            <div className='login__button'>
-              <button type='submit'>Login</button>
+            <div>
+              <button className='login__button' type='submit'>Login</button>
             </div>
 
           </form>
@@ -55,4 +79,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginView

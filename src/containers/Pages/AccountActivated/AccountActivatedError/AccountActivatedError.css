@@ -1,0 +1,31 @@
+
+.mess__error__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mess__error__content {
+    border: solid 4px rgba(222, 27, 84, 0.9);
+    border-radius: 15px;
+    background-color: rgba(222, 27, 84, 0.2);
+    width: 80%;
+    padding: 12px;
+}
+
+.mess__error__title {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+}
+
+.mess__error__body {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
