@@ -4,13 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
 
 import store from './store'
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = trueimport
+axios.defaults.headers.common['X-CSRFToken'] = Cookies.get('kejki');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
