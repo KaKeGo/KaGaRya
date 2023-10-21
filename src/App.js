@@ -16,6 +16,13 @@ import Profile from './content/Account/Profile/Profile'
 {/* Game list */}
 import GameHomeView from "./content/GamesList/GameHome/GameHomeView";
 import AnimeHomeView from "./content/AnimeList/AnimeHome/AnimeHomeView";
+{/* Game event list */}
+import RecentlyAddedFullGames from "./content/GamesList/RecentlyAddedGames/RecentlyAddedFullGames";
+import Premiers from "./content/GamesList/Premiers/Premiers";
+import UpcomingGames from "./content/GamesList/UpcomingGames/UpcomingGames";
+import TodayRelesedGames from "./content/GamesList/TodayRelesedGames/TodayRelesedGames";
+import RecentlyRelesed from "./content/GamesList/RecentlyRelesed/RecentlyRelesed";
+import TopGames from "./content/GamesList/TopGames/TopGames";
 
 
 function App() {
@@ -40,6 +47,13 @@ function App() {
 
             {/* Game list */}
             <Route path="/game/list" element={<GameHomeView />}/>
+            {/* Game event list */}
+            <Route path="/recentlyadded/more" element={<RecentlyAddedFullGames />}/>
+            <Route path="/premiers/more" element={<Premiers />}/>
+            <Route path="/upcoming/more" element={<UpcomingGames />}/>
+            <Route path="/relesed/more" element={<TodayRelesedGames />}/>
+            <Route path="/recentlyrelesed/more" element={<RecentlyRelesed />}/>
+            <Route path="/topgames/more" element={<TopGames />}/>
             {/* AnimeList */}
             <Route path="/anime/list" element={<AnimeHomeView/>} />
 
