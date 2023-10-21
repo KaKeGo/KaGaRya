@@ -19,7 +19,7 @@ const GameHomeView = () => {
     <div className='containers gamehome__container'>
 
       <div className='gamehome__column1'>
-        <div className='gamelist__column1'>
+        <div className='recentlygames__column1'>
 
           <div className='headline__title'>
             <h2>Last added games</h2>
@@ -29,13 +29,14 @@ const GameHomeView = () => {
             <RecentlyAddedGames onShowMoreButtonChange={handleShowMoreButtonChange} />
           </div>
         </div>
-        <div className='gamelist__column2'>
+        <div className='recentlygames__column2'>
 
           <div className='headline__title'>
             <h2>Premieres</h2>
+            <Link to='/premiers/more'>Check more...</Link>
           </div>
 
-          <div className='premieres__column'>
+          <div className='premieres__column bord'>
             <CommingSoonView />
           </div>
 
@@ -43,6 +44,55 @@ const GameHomeView = () => {
       </div>
 
       <div className='gamehome__column2'>
+
+        <div className='gameevent__column'>
+
+          <div className='headline__title'>
+              <h2>Upcoming</h2>
+              <Link to='/upcoming/more'>Check more...</Link>
+          </div>
+          <div className='upcoming__column bord'>
+            <CommingSoonView />
+          </div>
+          
+        </div>
+        <div className='gameevent__column'>
+
+          <div className='headline__title'>
+              <h2>Relesed today</h2>
+              <Link to='/relesed/more'>Check more...</Link>
+          </div>
+          <div className='relesetoday__column bord'>
+            <CommingSoonView />
+          </div>
+
+        </div>
+        <div className='gameevent__column'>
+
+          <div className='headline__title '>
+              <h2>Recently relesed</h2>
+              <Link to='/recentlyrelesed/more'>Check more...</Link>
+          </div>
+          <div className='recentlyrelesed__column bord'>
+            <CommingSoonView />
+          </div>
+
+        </div>
+        <div className='gameevent__column'>
+
+          <div className='headline__title'>
+              <h2>Top games</h2>
+              <Link to='/topgames/more'>Check more...</Link>
+          </div>
+          <div className='ranking__column bord'>
+            <CommingSoonView />
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className='gamehome__column3'>
         <div className='gamelist__column1'>
 
           <div className='headline__title'>
