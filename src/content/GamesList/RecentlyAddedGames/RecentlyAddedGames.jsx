@@ -59,10 +59,9 @@ const RecentlyAddedGames = ({ onShowMoreButtonChange }) => {
             {showGames.map((game) => (
                 <div className='recently__games__box' key={game.id}>
                     <img className='game__icon' src={game.cover} />
-                    <div className='game__title'>
-                        <GameMenu />
-                        {game.title}
-                    </div>
+                        <GameMenu 
+                            title={game.title} 
+                        />
                 </div>
             ))}
             </div>

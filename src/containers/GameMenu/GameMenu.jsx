@@ -7,10 +7,14 @@ import './GameMenu.css';
 
 
 
-const GameMenu = () => {
+const GameMenu = ({
+   title
+  }) => {
+  
   return (
     <div className='arrow__container'>
       <FontAwesomeIcon icon={faCaretUp} size='lg' />
+      <div></div>
     </div>
   )
 }

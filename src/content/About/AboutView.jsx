@@ -6,10 +6,7 @@ import './About.css'
 
 const About = () => {
   return (
-    <div className='about__container'>
-
-      <CommingSoonView />
-
+    <div className='about__container containers'>
     </div>
   )
 }
