@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { unwrapResult } from '@reduxjs/toolkit'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 
@@ -19,24 +18,42 @@ const RegisterView = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [usernameError, setUsernameError] = useState(null)
+  const [emailError, setEmailError] = useState(null)
+  const [passwordError, setPasswordError] = useState(null)
+  const [confirmPasswordError, setConfirmPasswordError] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    setUsernameError(null)
+    setEmailError(null)
+    setPasswordError(null)
+    setConfirmPasswordError(null)
+
     if (password !== confirmPassword) {
-      alert('Passwords do not match')
+      setConfirmPasswordError('Passwords do not match')
       return
     }
-
-    try {
-      await dispatch(Register({ 
+      const resultAction = await dispatch(Register({ 
         username, email, password, confirm_password: confirmPassword 
       }))
-      navigate('/register/completed')
-    } catch (rejectedValueOrSerializedError) {
-      console.log(rejectedValueOrSerializedError)
-    }
+      if (Register.fulfilled.match(resultAction)) {
+        navigate('/register/completed')
+      } else {
+        if (resultAction.payload) {
+          setUsernameError(resultAction.payload.username ? resultAction.payload.username[0] : null)
+          setEmailError(resultAction.payload.email ? resultAction.payload.email[0] : null)
+          setPasswordError(resultAction.payload.password ? resultAction.payload.password[0] : null)
+        } else {
+          setUsernameError(resultAction.error.message)
+          setEmailError(resultAction.error.message)
+          setConfirmPassword(resultAction.error.message)
+          setConfirmPasswordError(resultAction.error.message)
+        }
+      }
   }
 
   return (
@@ -64,6 +81,7 @@ const RegisterView = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
+              {usernameError && <div className='error__message'>{usernameError}</div>}
             </label>
           </div>
 
@@ -78,6 +96,7 @@ const RegisterView = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {emailError && <div className='error__message'>{emailError}</div>}
             </label>
           </div>
 
@@ -92,6 +111,7 @@ const RegisterView = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {passwordError && <div className='error__message'>{passwordError}</div>}
             </label>
           </div>
 
@@ -106,13 +126,13 @@ const RegisterView = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-            </label>
+              {confirmPasswordError && <div className='error__message'>{confirmPasswordError}</div>}
+           </label>
           </div>
 
           <div>
             <button className='register__button' type='submit'>Register</button>
-          </div>
-
+         </div>
 
           </form>
         </div>

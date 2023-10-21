@@ -14,15 +14,29 @@ import { Login } from '../../../slice/Accounts/Login/loginSlice'
 const LoginView = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [emailError, setEmailError] = useState(null)
+  const [passwordError, setPasswordError] = useState(null)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await dispatch(Login({ email, password }))
-    navigate('/')
-    window.location.reload()
+    const resultAction = await dispatch(Login({ email, password }))
+    if (Login.fulfilled.match(resultAction)) {
+      navigate('/')
+      window.location.reload()
+    } else {
+      if (resultAction.payload) {
+        if (resultAction.payload.error === 'Invalid credentials') {
+          setEmailError('Invalid email')
+          setPasswordError('Invalid password')
+        }
+      } else {
+        setEmailError(resultAction.error.message)
+        setPasswordError(resultAction.error.message)
+      }
+    }
   }
 
   return (
@@ -49,6 +63,7 @@ const LoginView = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
+                {emailError && <div className='error__message'>{emailError}</div>}
               </label>
             </div>
 
@@ -63,6 +78,7 @@ const LoginView = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                {passwordError && <div className='error__message'>{passwordError}</div>}
               </label>
             </div>
 

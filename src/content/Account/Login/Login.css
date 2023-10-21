@@ -30,14 +30,6 @@
     margin-right: auto;
 }
 
-.input__field {
-    padding: 2px;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin-top: 5px;
-    color: black;
-}
-
 .login__button {
     display: block;
     width: 40%;
@@ -56,6 +48,24 @@
 .login__button:hover {
     background-color: rgba(6, 7, 108, 0.8);
 }
+
+.input__field {
+  padding: 2px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 5px;
+  color: black;
+}
+
+.input__field__error {
+    border-color: red;
+  }
+  
+.error__message {
+    font-size: 12px;
+    font-weight: 200;
+    color: red;   
+  }
 
 @media (max-width: 1200px) {
     .login__box {

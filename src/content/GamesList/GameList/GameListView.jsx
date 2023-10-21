@@ -22,7 +22,6 @@ const GameListView = () => {
       dispatch(GameList())
     }
   }, [status, dispatch])
-  console.log(games)
 
   const handlePrevPage = () => {
     if (games.previous) {
