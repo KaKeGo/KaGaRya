@@ -12,7 +12,7 @@ export const checkAuth = createAsyncThunk(
     async (_, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                `${DEV_URL}accounts/authcheck/`,
+                `${AKI}accounts/authcheck/`,
             )
             return response.data
         } catch (err) {

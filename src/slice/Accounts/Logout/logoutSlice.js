@@ -12,7 +12,7 @@ export const Logout = createAsyncThunk(
             const csrftoken = Cookies.get('kejki')
 
             const response = await axios.post(
-                `${DEV_URL}accounts/profile/logout/`,
+                `${AKI}accounts/profile/logout/`,
                 {},
                 {
                     headers: {
