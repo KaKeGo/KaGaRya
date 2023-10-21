@@ -14,7 +14,7 @@ import AccountActivated from "./containers/Pages/AccountActivated/AccountActivat
 import AccountActivatedError from "./containers/Pages/AccountActivated/AccountActivatedError/AccountActivatedError";
 import Profile from './content/Account/Profile/Profile'
 {/* Game list */}
-import GomeHomeView from "./content/GamesList/GameHome/GomeHomeView";
+import GameHomeView from "./content/GamesList/GameHome/GameHomeView";
 import AnimeHomeView from "./content/AnimeList/AnimeHome/AnimeHomeView";
 
 
@@ -39,7 +39,7 @@ function App() {
             <Route path="/profile/:slug" element={<Profile />}/>
 
             {/* Game list */}
-            <Route path="/game/list" element={<GomeHomeView />}/>
+            <Route path="/game/list" element={<GameHomeView />}/>
             {/* AnimeList */}
             <Route path="/anime/list" element={<AnimeHomeView/>} />
 

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import './GomeHomeView.css'
+import './GameHomeView.css'
 
 import GameListView from '../GameList/GameListView'
 import RecentlyAddedGames from '../RecentlyAddedGames/RecentlyAddedGames'
 import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
 
-const GomeHomeView = () => {
+const GameHomeView = () => {
   const [showMoreButton, setShowMoreButton] = useState(false)
 
   const handleShowMoreButtonChange = (newShowMoreButton) => {
@@ -60,4 +60,4 @@ const GomeHomeView = () => {
   )
 }
 
-export default GomeHomeView
+export default GameHomeView
