@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import './GomeHomeView.css'
 
@@ -8,6 +9,12 @@ import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
 
 const GomeHomeView = () => {
+  const [showMoreButton, setShowMoreButton] = useState(false)
+
+  const handleShowMoreButtonChange = (newShowMoreButton) => {
+    setShowMoreButton(newShowMoreButton);
+  }
+
   return (
     <div className='containers gamehome__container'>
 
@@ -16,9 +23,10 @@ const GomeHomeView = () => {
 
           <div className='headline__title'>
             <h2>Last added games</h2>
+            {showMoreButton && <Link to='/recentlyadded/more'>Check more...</Link>}
           </div>
           <div className='recently__games__comp'>
-            <RecentlyAddedGames />
+            <RecentlyAddedGames onShowMoreButtonChange={handleShowMoreButtonChange} />
           </div>
         </div>
         <div className='gamelist__column2'>
