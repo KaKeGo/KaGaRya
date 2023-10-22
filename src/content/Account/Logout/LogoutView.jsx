@@ -11,7 +11,7 @@ const LogoutView = ({ children }) => {
 
     const handleLogout = async () => {
         await dispatch(Logout())
-        // window.location.reload()
+        window.location.reload()
     }
 
     return (
