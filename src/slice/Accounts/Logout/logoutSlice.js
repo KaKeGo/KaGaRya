@@ -8,20 +8,21 @@ import { DEV_URL, AKI } from "../../../apiConfig"
 export const Logout = createAsyncThunk(
     'user/logout',
     async (_, { rejectWithValue }) => {
+        const csrftoken = Cookies.get('kejki')
+
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            },
+            withCredentials: true
+        }
+
         try {
-            const csrftoken = Cookies.get('kejki')
-
-            const config = {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrftoken
-                },
-                withCredentials: true
-            }
-
             const response = await axios.post(
                 'https://aki.kagarya.com/accounts/profile/logout/',
+                {},
                 config,
             )
             console.log('logout: ', response.data)
