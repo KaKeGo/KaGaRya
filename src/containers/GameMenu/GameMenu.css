@@ -39,7 +39,7 @@
 
 .arrow__icon {
     color: rgba(218, 184, 249, 0.9);
-    margin-bottom: -8px;
+    margin-bottom: -12px;
 }
 .arrow__icon:hover {
     cursor: pointer;
@@ -51,5 +51,61 @@
     font-size: 12px;
     font-weight: 500;
     text-align: center;
-    padding-bottom: 4px;
+}
+
+.arrow__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 75%;
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    
+}
+
+.arrow__check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    background-color: rgba(218, 184, 249, 0.9);
+    border-radius: 40px;
+    width: 80%;
+}
+
+.arrow__check p {
+    font-size: 12px;
+    color: black;
+}
+
+.arrowinfo__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    width: 100%;
+    align-self: flex-start;
+}
+
+.arrowinfo__content p {
+    padding: 2px 0;
+    font-size: 10px;
+}
+
+.raiting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding: 0;
+    height: 40px;
+    margin: -15px;
+    color: rgba(218, 184, 249, 0.9);
 }

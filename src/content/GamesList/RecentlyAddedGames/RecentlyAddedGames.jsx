@@ -59,8 +59,10 @@ const RecentlyAddedGames = ({ onShowMoreButtonChange }) => {
             {showGames.map((game) => (
                 <div className='recently__games__box' key={game.id}>
                     <GameMenu 
-                        title={game.title} 
-                        cover={game.cover}
+                        title={game.title} release_date={game.release_date}
+                        cover={game.cover} developer={game.developer}
+                        game_type={game.game_type} game_mode={game.game_mode}
+                        average_rating={game.average_rating}
                     />
                 </div>
             ))}
