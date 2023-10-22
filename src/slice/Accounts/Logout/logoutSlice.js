@@ -8,18 +8,24 @@ import { DEV_URL, AKI } from "../../../apiConfig"
 export const Logout = createAsyncThunk(
     'user/logout',
     async (_, { rejectWithValue }) => {
-        try {
-            const csrftoken = Cookies.get('kejki')
 
+        const csrftoken = Cookies.get('csrftoken')
+
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            },
+            withCredentials: true
+        }
+
+
+        try {
             const response = await axios.post(
-                `${DEV_URL}accounts/profile/logout/`,
+                `${AKI}accounts/profile/logout/`,
                 {},
-                {
-                    headers: {
-                        'X-CSRFToken': csrftoken,
-                    },
-                    withCredentials: true,
-                }
+                config,
             )
             return response.data
         } catch (err) {

@@ -9,7 +9,7 @@ export const Login = createAsyncThunk(
     'user/login',
     async (userCredentials, { rejectWithValue }) => {
         
-        const csrftoken = Cookies.get('kejki')
+        const csrftoken = Cookies.get('csrftoken')
 
         const config = {
             headers: {
@@ -22,7 +22,7 @@ export const Login = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `${DEV_URL}accounts/profile/login/`,
+                `${AKI}accounts/profile/login/`,
                 userCredentials,
                 config,
             )
