@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { Logout } from '../../../slice/Accounts/Logout/logoutSlice'
 
 import './Logout.css'
+import CSRFToken from '../../../CSRFToken'
 
 const LogoutView = ({ children }) => {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const LogoutView = ({ children }) => {
 
     return (
         <button onClick={handleLogout}>
+            <CSRFToken />
             {children}
         </button>
     )
