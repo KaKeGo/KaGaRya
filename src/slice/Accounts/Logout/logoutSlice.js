@@ -8,6 +8,7 @@ import { DEV_URL, AKI } from "../../../apiConfig"
 export const Logout = createAsyncThunk(
     'user/logout',
     async (_, { rejectWithValue }) => {
+
         const csrftoken = Cookies.get('kejki')
 
         const config = {
@@ -21,7 +22,7 @@ export const Logout = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                'https://aki.kagarya.com/accounts/profile/logout/',
+                `${AKI}accounts/profile/logout/`,
                 {},
                 config,
             )
@@ -51,10 +52,12 @@ export const logoutSlice = createSlice({
             })
             .addCase(Logout.fulfilled, (state) => {
                 state.status = 'succeeded'
+                state.isAuthenticated = false
             })
             .addCase(Logout.rejected, (state, action) => {
                 state.status = 'failed'
-                state.error = action.payload
+                state.error = action.error.message
+                state.isAuthenticated = false
             })
     }
 })
