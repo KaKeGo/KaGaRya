@@ -21,8 +21,7 @@ export const Logout = createAsyncThunk(
             }
 
             const response = await axios.post(
-                `${AKI}accounts/profile/logout/`,
-                {},
+                'https://aki.kagarya.com/accounts/profile/logout/',
                 config,
             )
             console.log('logout: ', response.data)
