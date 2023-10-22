@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import Cookies from "js-cookie"
 
-import { DEV_URL } from "../../../apiConfig"
+import { DEV_URL, AKI } from "../../../apiConfig"
 
 
 export const Register = createAsyncThunk(
     'user/register',
     async (userCredentials, { rejectWithValue }) => {
-        const csrftoken = Cookies.get('kejki')
+        const csrftoken = Cookies.get('csrftoken')
 
         const config = {
             headers: {
@@ -21,7 +21,7 @@ export const Register = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `${DEV_URL}accounts/profile/create/`,
+                `${AKI}accounts/profile/create/`,
                 userCredentials,
                 config,
             )

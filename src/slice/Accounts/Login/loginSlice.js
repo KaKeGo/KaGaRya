@@ -9,7 +9,7 @@ export const Login = createAsyncThunk(
     'user/login',
     async (userCredentials, { rejectWithValue }) => {
         
-        const csrftoken = Cookies.get('kejki')
+        const csrftoken = Cookies.get('csrftoken')
 
         const config = {
             headers: {
