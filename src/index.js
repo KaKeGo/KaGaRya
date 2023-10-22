@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 
 import store from './store'
 
-axios.defaults.withCredentials = trueimport
+axios.defaults.withCredentials = true
 axios.defaults.headers.common['X-CSRFToken'] = Cookies.get('kejki');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
