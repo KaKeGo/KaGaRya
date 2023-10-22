@@ -25,7 +25,7 @@ export const Logout = createAsyncThunk(
                 {},
                 config,
             )
-            console.log(response.data)
+            console.log('logout: ', response.data)
             return response.data
         } catch (err) {
             return rejectWithValue(err.response.data)
