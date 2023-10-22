@@ -11,15 +11,19 @@ export const Logout = createAsyncThunk(
         try {
             const csrftoken = Cookies.get('kejki')
 
+            const config = {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken
+                },
+                withCredentials: true
+            }
+
             const response = await axios.post(
                 `${AKI}accounts/profile/logout/`,
                 {},
-                {
-                    headers: {
-                        'X-CSRFToken': csrftoken,
-                    },
-                    withCredentials: true,
-                }
+                config,
             )
             console.log(response.data)
             return response.data
