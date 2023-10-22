@@ -6,10 +6,50 @@
     align-items: center;
 }
 
-.arrow__container svg {
+.arrow__cover {
+    width: 100%;
+    object-fit: cover;
+    min-height: 220px;
+}
+
+.arrow__menu {
     position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease;
+    min-height: 15%;
+    transform: translateY(0);
+    transition: 
+        min-height 0.6s ease, 
+        box-shadow 0.6s ease,
+        transform 0.6s ease;
+}
+
+.arrow__menu.open {
+    min-height: 100%;
+    box-shadow: none;
+}
+
+.arrow__icon {
     color: rgba(218, 184, 249, 0.9);
+    margin-bottom: -8px;
+}
+.arrow__icon:hover {
+    cursor: pointer;
+}
+
+.arrow__title {
+    padding: 4px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 4px;
 }

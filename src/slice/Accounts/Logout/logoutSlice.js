@@ -20,10 +20,9 @@ export const Logout = createAsyncThunk(
             withCredentials: true
         }
 
-
         try {
             const response = await axios.post(
-                `${AKI}accounts/profile/logout/`,
+                `${DEV_URL}accounts/profile/logout/`,
                 {},
                 config,
             )

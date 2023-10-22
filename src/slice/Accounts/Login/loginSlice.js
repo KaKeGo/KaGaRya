@@ -22,7 +22,7 @@ export const Login = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `${AKI}accounts/profile/login/`,
+                `${DEV_URL}accounts/profile/login/`,
                 userCredentials,
                 config,
             )

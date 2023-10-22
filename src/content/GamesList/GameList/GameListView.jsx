@@ -43,13 +43,10 @@ const GameListView = () => {
         <div className='game__column1'>
         {games.results && games.results.map((game) =>(
         <div className='games__box' key={game.id}>
-
-            <img className='game_icon' src={game.cover}/>
-            <div className='games__title'>
-              <GameMenu />
-              <h2>{game.title}</h2>
-            </div>
-
+              <GameMenu 
+                title={game.title} 
+                cover={game.cover}
+              />
           </div>
           ))}
         </div>
