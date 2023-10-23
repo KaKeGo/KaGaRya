@@ -38,7 +38,7 @@
 }
 
 .arrow__icon {
-    color: rgba(218, 184, 249, 0.9);
+    color: white;
     margin-bottom: -12px;
 }
 .arrow__icon:hover {
@@ -74,14 +74,14 @@
     justify-content: center;
     align-items: center;
     height: 26px;
-    background-color: rgba(218, 184, 249, 0.9);
+    background-color: rgba(20, 17, 98);
     border-radius: 40px;
     width: 80%;
 }
 
 .arrow__check p {
     font-size: 12px;
-    color: black;
+    color: white;
 }
 
 .arrowinfo__content {
@@ -107,5 +107,5 @@
     padding: 0;
     height: 40px;
     margin: -15px;
-    color: rgba(218, 184, 249, 0.9);
+    color: white;
 }

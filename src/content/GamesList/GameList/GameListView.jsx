@@ -10,6 +10,7 @@ import GameMenu from '../../../containers/GameMenu/GameMenu'
 
 import './GameList.css'
 import SwitchStatusButton from '../../../components/SwitchStatusButton/SwitchStatusButton'
+import CreateGameButton from '../../../components/CreateGameButton/CreateGameButton'
 
 
 
@@ -20,7 +21,8 @@ const GameListView = () => {
   const games = useSelector((state) => state.gameList.games)
   const status = useSelector((state) => state.gameList.status)
   const error = useSelector((state) => state.gameList.error)
-  const user = useSelector((state) => state.authCheck.user)
+  const { user, isAuthenticated } = useSelector((state) => state.authCheck)
+  
   const [userLoaded, setUserLoaded] = useState(false)
 
   const { gameStatus } = useParams()
@@ -36,6 +38,7 @@ const GameListView = () => {
       if (user.roles.includes('GameCreator')) {
         dispatch(GameList({ gameStatus }))
       } else {
+        dispatch(GameList({ gameStatus }))
         navigate('/game/list/public')
       }
     }
@@ -58,6 +61,7 @@ const GameListView = () => {
     return (
       <div className='game__container'>
         {user.roles.includes('GameCreator') && <SwitchStatusButton />}
+        {isAuthenticated && <CreateGameButton />}
 
         <div className='game__column1'>
         {games.results && games.results.map((game) =>(

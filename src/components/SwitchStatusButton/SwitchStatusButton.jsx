@@ -21,7 +21,7 @@ const SwitchStatusButton = () => {
     }
 
     return (
-        <button className="switch-status-button" onClick={handleSwitchStatus}>
+        <button onClick={handleSwitchStatus}>
             <div className={`switch__status__button ${gameStatus}`}>
                 <FontAwesomeIcon 
                     className="icon-up"

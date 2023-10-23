@@ -66,6 +66,9 @@ border-bottom: 2px solid rgba(6, 7, 108, 0.8); */
     display: none;
 }
 
+.add__button {
+    margin-bottom: 20px;
+}
 
 @media (max-width: 1000px) {
     .games__box {

@@ -15,7 +15,7 @@ import AccountActivatedError from "./containers/Pages/AccountActivated/AccountAc
 import Profile from './content/Account/Profile/Profile'
 {/* Game list */}
 import GameHomeView from "./content/GamesList/GameHome/GameHomeView";
-import AnimeHomeView from "./content/AnimeList/AnimeHome/AnimeHomeView";
+import GameCreate from "./content/GamesList/GameCreate/GameCreate";
 {/* Game event list */}
 import RecentlyAddedFullGames from "./content/GamesList/RecentlyAddedGames/RecentlyAddedFullGames";
 import Premiers from "./content/GamesList/Premiers/Premiers";
@@ -23,6 +23,8 @@ import UpcomingGames from "./content/GamesList/UpcomingGames/UpcomingGames";
 import TodayRelesedGames from "./content/GamesList/TodayRelesedGames/TodayRelesedGames";
 import RecentlyRelesed from "./content/GamesList/RecentlyRelesed/RecentlyRelesed";
 import TopGames from "./content/GamesList/TopGames/TopGames";
+{/* Anime list */}
+import AnimeHomeView from "./content/AnimeList/AnimeHome/AnimeHomeView";
 
 
 function App() {
@@ -47,6 +49,7 @@ function App() {
 
             {/* Game list */}
             <Route path="/game/list/:gameStatus" element={<GameHomeView />}/>
+            <Route path="/game/add" element={<GameCreate />}/>
             {/* Game event list */}
             <Route path="/recentlyadded/more" element={<RecentlyAddedFullGames />}/>
             <Route path="/premiers/more" element={<Premiers />}/>

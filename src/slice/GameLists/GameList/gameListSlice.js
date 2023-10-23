@@ -8,7 +8,7 @@ export const GameList = createAsyncThunk(
     async ({ url, gameStatus }, { rejectWithValue }) => {
         try {
             const response = await axios.get(
-                url || `${DEV_URL}games/${gameStatus}/`,
+                url || `${DEV_URL}games/list/${gameStatus}/`,
             )
             return response.data
         } catch (err) {
