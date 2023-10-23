@@ -8,6 +8,11 @@
     box-shadow: 0px 0px 20px 5px rgba(6, 7, 108, 0.6);
     padding: 10px;
     border-radius: 100px;
+    transition: 0.3s ease;
+}
+
+.switch__status__button:hover {
+    box-shadow: 0px 0px 20px 5px white;
 }
 
 .switch__status__button p {
@@ -24,9 +29,9 @@
 }
 
 .switch__status__button.public .icon-up {
-    color: purple;
+    color: white;
 }
 
 .switch__status__button.pending .icon-down {
-    color: purple;
+    color: white;
 }

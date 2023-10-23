@@ -10,10 +10,14 @@
     border-radius: 100px;
 }
 
+.create__button:hover {
+    box-shadow: 0px 0px 20px 5px white;
+}
+
 .create__button svg {
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: purple;
+    color: white;
 }

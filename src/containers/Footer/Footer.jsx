@@ -29,8 +29,14 @@ const Footer = () => {
                         <FontAwesomeIcon className='icon' icon={faFacebook} size='lg' />
                     </a>
                 </li>
-                  <li><a href='#'><FontAwesomeIcon className='icon' icon={faInstagram} size='lg' /></a></li>
-                  <li><a href='#'><FontAwesomeIcon className='icon' icon={faTiktok} size='lg' /></a></li>
+                    <a href=''>
+                        <FontAwesomeIcon className='icon' icon={faInstagram} size='lg' />
+                    </a>
+                <li>
+                    <a href='https://www.tiktok.com/@kagarya'>
+                        <FontAwesomeIcon className='icon' icon={faTiktok} size='lg' />
+                    </a>
+                </li>
               </ul>
               </div>
           </div>
