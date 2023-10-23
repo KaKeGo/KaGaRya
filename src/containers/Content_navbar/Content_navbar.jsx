@@ -11,7 +11,7 @@ const Content_navbar = () => {
 
                 <ul>
                     <li className='icon'>
-                      <Link to='game/list'>Games</Link>
+                      <Link to='game/list/pending'>Games</Link>
                     </li>
                     <li className='icon'>
                       <Link to='anime/list'>Anime</Link>

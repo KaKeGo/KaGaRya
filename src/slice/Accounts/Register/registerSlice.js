@@ -21,7 +21,7 @@ export const Register = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `${AKI}accounts/profile/create/`,
+                `${DEV_URL}accounts/profile/create/`,
                 userCredentials,
                 config,
             )
