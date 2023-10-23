@@ -9,6 +9,7 @@ import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 import GameMenu from '../../../containers/GameMenu/GameMenu'
 
 import './GameList.css'
+import SwitchStatusButton from '../../../components/SwitchStatusButton/SwitchStatusButton'
 
 
 
@@ -31,14 +32,14 @@ const GameListView = () => {
   }, [user])
 
   useEffect(() => {
-    if (status === 'idle' && userLoaded) {
+    if (userLoaded) {
       if (user.roles.includes('GameCreator')) {
         dispatch(GameList({ gameStatus }))
       } else {
         navigate('/game/list/public')
       }
     }
-  }, [status, dispatch, gameStatus, user, navigate, userLoaded])
+  }, [dispatch, gameStatus, user, navigate, userLoaded]) 
 
   const handlePrevPage = () => {
     if (games.previous) {
@@ -56,6 +57,7 @@ const GameListView = () => {
   } else if (status === 'succeeded') {
     return (
       <div className='game__container'>
+        {user.roles.includes('GameCreator') && <SwitchStatusButton />}
 
         <div className='game__column1'>
         {games.results && games.results.map((game) =>(

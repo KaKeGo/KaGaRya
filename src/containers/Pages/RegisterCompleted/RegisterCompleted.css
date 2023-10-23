@@ -33,7 +33,7 @@
   border-radius: 50%;
   position: relative;
   text-decoration: dotted;
-  animation: moveAround 8s linear infinite;
+  animation: moveAround 15s linear infinite;
 }
 
 @keyframes moveAround {
