@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 {/* Content */}
 import Home from './content/Home/Home/Home'
 import NewsView from './content/News/NewsView'
-import AboutView from './content/About/AboutView'
+import About from './content/About/About'
 {/* User */}
 import LoginView from './content/Account/Login/LoginView'
 import RegisterView from "./content/Account/Register/RegisterView";
@@ -34,7 +34,7 @@ function App() {
             {/* Content */}
             <Route path="/" element={<Home />}/>
             <Route path="/news" element={<NewsView />}/>
-            <Route path="/about" element={<AboutView />}/>
+            <Route path="/about" element={<About />}/>
 
             {/* User */}
             <Route path="/login" element={<LoginView />}/>
