@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
@@ -14,17 +14,31 @@ import './GameList.css'
 
 const GameListView = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const games = useSelector((state) => state.gameList.games)
   const status = useSelector((state) => state.gameList.status)
   const error = useSelector((state) => state.gameList.error)
+  const user = useSelector((state) => state.authCheck.user)
+  const [userLoaded, setUserLoaded] = useState(false)
 
   const { gameStatus } = useParams()
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(GameList({ gameStatus }))
+    if (user) {
+      setUserLoaded(true)
     }
-  }, [status, dispatch, gameStatus])
+  }, [user])
+
+  useEffect(() => {
+    if (status === 'idle' && userLoaded) {
+      if (user.roles.includes('GameCreator')) {
+        dispatch(GameList({ gameStatus }))
+      } else {
+        navigate('/game/list/public')
+      }
+    }
+  }, [status, dispatch, gameStatus, user, navigate, userLoaded])
 
   const handlePrevPage = () => {
     if (games.previous) {
