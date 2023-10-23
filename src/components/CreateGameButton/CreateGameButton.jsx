@@ -1,16 +1,25 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faCircleXmark  } from '@fortawesome/free-solid-svg-icons';
+
+import GameCreate from '../../content/GamesList/GameCreate/GameCreate'
 
 import './CreateGameButton.css'
 
+
+
 const CreateGameButton = () => {
-  const navigate = useNavigate()
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
+  const handleClick = () => {
+    setIsPopupOpen(!isPopupOpen)
+  }
 
   return (
-      <button>
+    <>
+      <button onClick={handleClick}>
+
         <div className='create__button'>
             <FontAwesomeIcon 
                 className="icon-up"
@@ -18,7 +27,25 @@ const CreateGameButton = () => {
                 size="lg" 
             />
         </div>
+
     </button>
+    {isPopupOpen && (
+      <>
+      <div className='popup__background'></div>
+      <div className='create__button2'>
+          <FontAwesomeIcon 
+              className="icon-up"
+              icon={faCircleXmark} 
+              onClick={handleClick}
+              size="lg" 
+          />
+      </div>
+      <div className='popup'>
+        <GameCreate />
+      </div>
+      </>
+    )}
+  </>
   )
 }
 

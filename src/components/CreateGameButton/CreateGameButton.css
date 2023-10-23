@@ -19,5 +19,52 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+}
+
+.create__button2 {
+    position: fixed;
+    right: 10px;
+    top: 37%;
+    transform: translateY(-37%);
+    background-color: rgba(6, 7, 108, 1);
+    box-shadow: 0px 0px 20px 5px rgba(6, 7, 108, 0.6);
+    padding: 10px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create__button2 svg {
+    font-size: 30px;
+    top: 50%;
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create__button2 svg:hover {
+    cursor: pointer;
+
+}
+
+.popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    background-color: rgba(6, 7, 108, 1);
+    border-radius: 10px;
+}
+
+.popup__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(4px);
 }

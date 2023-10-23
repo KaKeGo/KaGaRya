@@ -1,0 +1,44 @@
+.b {
+    border: 2px solid black;
+}
+
+.game__create {
+    margin-top: 30px;
+}
+
+.columnt__title {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.columnt__title h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.columnt__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.input__box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.input__box input {
+    width: 60%;
+    border-radius: 4px;
+    height: 30px;
+    text-align: center;
+}
