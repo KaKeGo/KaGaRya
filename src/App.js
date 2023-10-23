@@ -46,7 +46,7 @@ function App() {
             <Route path="/profile/:slug" element={<Profile />}/>
 
             {/* Game list */}
-            <Route path="/game/list" element={<GameHomeView />}/>
+            <Route path="/game/list/:gameStatus" element={<GameHomeView />}/>
             {/* Game event list */}
             <Route path="/recentlyadded/more" element={<RecentlyAddedFullGames />}/>
             <Route path="/premiers/more" element={<Premiers />}/>

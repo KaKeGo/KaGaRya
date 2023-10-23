@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { useParams } from 'react-router-dom'
 
 import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
@@ -17,20 +18,22 @@ const GameListView = () => {
   const status = useSelector((state) => state.gameList.status)
   const error = useSelector((state) => state.gameList.error)
 
+  const { gameStatus } = useParams()
+
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(GameList())
+      dispatch(GameList({ gameStatus }))
     }
-  }, [status, dispatch])
+  }, [status, dispatch, gameStatus])
 
   const handlePrevPage = () => {
     if (games.previous) {
-      dispatch(GameList(games.previous))
+      dispatch(GameList({ url: games.previous }))
     }
   }
   const handleNextPage = () => {
     if (games.next) {
-      dispatch(GameList(games.next))
+      dispatch(GameList({ url: games.next }))
     }
   }
 
