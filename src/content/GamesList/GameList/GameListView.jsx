@@ -35,14 +35,17 @@ const GameListView = () => {
 
   useEffect(() => {
     if (userLoaded) {
-      if (user.roles.includes('GameCreator')) {
+      if (user && user.roles.includes('GameCreator')) {
         dispatch(GameList({ gameStatus }))
       } else {
-        dispatch(GameList({ gameStatus }))
+        dispatch(GameList({ gameStatus: 'public' }))
         navigate('/game/list/public')
       }
+    } else if (!isAuthenticated) {
+      dispatch(GameList({ gameStatus: 'public' }))
+      navigate('/game/list/public')
     }
-  }, [dispatch, gameStatus, user, navigate, userLoaded]) 
+  }, [dispatch, gameStatus, user, navigate, userLoaded, isAuthenticated])
 
   const handlePrevPage = () => {
     if (games.previous) {
@@ -60,7 +63,7 @@ const GameListView = () => {
   } else if (status === 'succeeded') {
     return (
       <div className='game__container'>
-        {user.roles.includes('GameCreator') && <SwitchStatusButton />}
+        {user && user.roles.includes('GameCreator') && <SwitchStatusButton />}
         {isAuthenticated && <CreateGameButton />}
 
         <div className='game__column1'>
