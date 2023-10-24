@@ -82,8 +82,3 @@ border-bottom: 2px solid rgba(6, 7, 108, 0.8); */
     }
   }
 
-@media (max-width: 1000px) {
-    .games__box:nth-last-child(-n+2) {
-        width: 50%;
-    }
-}
