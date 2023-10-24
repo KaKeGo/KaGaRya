@@ -51,7 +51,7 @@ const GameCreate = () => {
         <div className='input__box '>
           <p className='completed__created'>
             Your idea for this game: "<s>{addedTitle}</s>" has 
-            been added and is awaiting approval.
+            been added and is awaiting approval. Thanks for help!
           </p>
         </div>
       ) : (
