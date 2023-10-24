@@ -13,9 +13,30 @@ const GameCreate = () => {
   const dispatch = useDispatch()
   const [title, setTitle] = useState('')
 
-  const handleSubmit = (e) => {
+  const [titleError, setTitleError] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [addedTitle, setAddedTitle] = useState('')
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    dispatch(CreateGame(title))
+
+    setTitleError(null)
+    setIsSubmitting(true)
+
+    const resultAction = await dispatch(CreateGame(title))
+    if (CreateGame.fulfilled.match(resultAction)) {
+      setAddedTitle(title)
+      setTitle('')
+      setTimeout(() => {
+        setIsSubmitting(false)
+      }, 6000)
+    } else {
+      if (resultAction.payload) {
+        setTitleError(resultAction.payload.title ? resultAction.payload.title[0] : null)
+      } else {
+        setTitleError(resultAction)
+      }
+    }
   }
 
   return (
@@ -26,6 +47,15 @@ const GameCreate = () => {
         <h2>Add game idea</h2>
       </div>
 
+      {isSubmitting ? (
+        <div className='input__box '>
+          <p className='completed__created'>
+            Your idea for this game: "<s>{addedTitle}</s>" has 
+            been added and is awaiting approval.
+          </p>
+        </div>
+      ) : (
+      <>
       <form className='columnt__box' onSubmit={handleSubmit}>
 
           <div className='input__box '>
@@ -34,11 +64,14 @@ const GameCreate = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
+            
+            {titleError && <div className='error__message'>{titleError}</div>}
           </div>
 
           <button type='Submit' className='gamecreate__button'>Send</button>
 
       </form>
+      
       
 
       <p className='gamecreate__info'>
@@ -49,6 +82,8 @@ const GameCreate = () => {
         The title of the game will be sent for checking by the staff, 
         if the game exists it will be added
       </p>
+      </>
+      )}
 
     </div>
     </FadeIn>

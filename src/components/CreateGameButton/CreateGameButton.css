@@ -57,7 +57,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    height: 45%;
+    height: 48%;
     transform: translate(-50%, -50%);
     width: 60%;
     z-index: 2; 
@@ -81,11 +81,11 @@
     backdrop-filter: blur(4px);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .popup, .popup__back {
         top: 50%;
         left: 30%;
-        height: 50%;
+        height: 52%;
         transform: translate(-30%, -50%);
         width: 80%;
         z-index: 2; 
@@ -96,4 +96,4 @@
         height: 100%;
         background-color: rgba(6, 7, 108, 0.8);
     }
-  }
+}

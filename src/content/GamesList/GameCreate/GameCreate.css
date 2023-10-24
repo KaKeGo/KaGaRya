@@ -30,6 +30,7 @@
 .input__box {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
@@ -46,16 +47,14 @@
 
 .gamecreate__info {
     padding: 10px 20px;
-}
-
-.gamecreate__info {
     text-align: center;
     font-size: 12px;
     font-weight: 500;
 }
 
 .gamecreate__button {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 40%;
     padding: 10px;
     margin: 5px 0;
@@ -64,11 +63,27 @@
     background-color: rgba(6, 7, 108, 0.4);
     box-shadow: 0px 0px 10px rgba(6, 7, 108, 0.6);
     cursor: pointer;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     transition: background-color 0.6s ease;
 }
 
 .gamecreate__button:hover {
     background-color: rgba(6, 7, 108, 0.8);
+}
+
+.error__message {
+    margin-top: 4px;
+    color: red;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.completed__created {
+    text-align: center;
+    padding: 0 30px;
+    color: rgba(30, 255, 0);
+    font-weight: 500;
+    font-size: 14px;
 }
