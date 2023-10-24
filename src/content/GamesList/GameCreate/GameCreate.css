@@ -4,6 +4,7 @@
 
 .game__create {
     margin-top: 30px;
+    color: white;
 }
 
 .columnt__title {
@@ -14,7 +15,6 @@
 }
 
 .columnt__title h2 {
-    color: white;
     font-size: 20px;
     font-weight: 700;
 }
@@ -33,7 +33,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .input__box input {
@@ -41,4 +41,33 @@
     border-radius: 4px;
     height: 30px;
     text-align: center;
+}
+
+.gamecreate__info {
+    padding: 10px 20px;
+}
+
+.gamecreate__info {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.gamecreate__button {
+    display: block;
+    width: 40%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(6, 7, 108, 0.4);
+    box-shadow: 0px 0px 10px rgba(6, 7, 108, 0.6);
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.6s ease;
+}
+
+.gamecreate__button:hover {
+    background-color: rgba(6, 7, 108, 0.8);
 }

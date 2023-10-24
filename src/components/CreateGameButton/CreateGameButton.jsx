@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus, faCircleXmark  } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCirclePlus, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 import GameCreate from '../../content/GamesList/GameCreate/GameCreate'
 
@@ -37,11 +37,13 @@ const CreateGameButton = () => {
               className="icon-up"
               icon={faCircleXmark} 
               onClick={handleClick}
-              size="lg" 
+              size="lg"
           />
       </div>
+      <div className='popup__back'>
       <div className='popup'>
         <GameCreate />
+      </div>
       </div>
       </>
     )}
