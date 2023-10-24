@@ -5,6 +5,7 @@ import { faCirclePlus, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 import GameCreate from '../../content/GamesList/GameCreate/GameCreate'
 
+import FadeIn from '../../animations/FadeIn/FadeIn'
 import './CreateGameButton.css'
 
 

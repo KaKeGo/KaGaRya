@@ -1,23 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
+import { CreateGame } from '../../../slice/GameLists/CreateGame/CreateGameSlice'
+
+import CSRFToken from '../../../CSRFToken'
+import FadeIn from '../../../animations/FadeIn/FadeIn'
 import './GameCreate.css'
 
 
 
 const GameCreate = () => {
+  const dispatch = useDispatch()
+  const [title, setTitle] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(CreateGame(title))
+  }
+
   return (
+    <FadeIn>
     <div className='game__create'>
 
       <div className='columnt__title'>
         <h2>Add game idea</h2>
       </div>
 
-      <div className='columnt__box'>
-        <div className='input__box '>
-          <input placeholder='Title' className=''/>
-        </div>
-        <button className='gamecreate__button'>Submit</button>
-      </div>
+      <form className='columnt__box' onSubmit={handleSubmit}>
+
+          <div className='input__box '>
+            <input 
+              placeholder='Title' 
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+
+          <button type='Submit' className='gamecreate__button'>Send</button>
+
+      </form>
+      
 
       <p className='gamecreate__info'>
         You can also add the title of a game 
@@ -29,6 +51,7 @@ const GameCreate = () => {
       </p>
 
     </div>
+    </FadeIn>
   )
 }
 
