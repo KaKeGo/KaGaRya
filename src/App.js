@@ -16,7 +16,7 @@ import Profile from './content/Account/Profile/Profile'
 {/* Game list */}
 import GameHomeView from "./content/GamesList/GameHome/GameHomeView";
 import GameCreate from "./content/GamesList/GameCreate/GameCreate";
-import GameUpdateView from "./content/GamesList/GameUpdate/GameUpdate";
+import GameDetailView from "./content/GamesList/GameDetail/GameDetailView";
 {/* Game event list */}
 import RecentlyAddedFullGames from "./content/GamesList/RecentlyAddedGames/RecentlyAddedFullGames";
 import Premiers from "./content/GamesList/Premiers/Premiers";
@@ -51,7 +51,7 @@ function App() {
             {/* Game list */}
             <Route path="/game/list/:gameStatus" element={<GameHomeView />}/>
             <Route path="/game/add" element={<GameCreate />}/>
-            <Route path="/game/list/detail" element={<GameUpdateView />}/>
+            <Route path="/game/list/detail" element={<GameDetailView />}/>
             {/* Game event list */}
             <Route path="/recentlyadded/more" element={<RecentlyAddedFullGames />}/>
             <Route path="/premiers/more" element={<Premiers />}/>

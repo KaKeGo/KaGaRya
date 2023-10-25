@@ -1,8 +1,8 @@
 import React from 'react'
 
-import './GameUpdateView.css'
+import './GameDetailView.css'
 
-const GameUpdateView = () => {
+const GameDetailView = () => {
   return (
     <div className='gamedetail__container containers'>
         <div className='gamedetail__box b'>
@@ -22,4 +22,4 @@ const GameUpdateView = () => {
   )
 }
 
-export default GameUpdateView
+export default GameDetailView
