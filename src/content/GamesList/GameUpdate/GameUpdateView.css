@@ -1,0 +1,11 @@
+
+.gamedetail__container {
+    width: 100%;
+    align-items: center;
+}
+
+.gamedetail__box {
+    width: 90%;
+    border: solid 2px rgba(44, 43, 43, 0.616);
+    border-radius: 20px;
+}

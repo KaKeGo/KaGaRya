@@ -29,7 +29,7 @@ const GameMenu = ({
         {isOpen && 
             <div className='arrow__info'>
                 <Link className='arrow__check'>
-                  <p>Check</p>
+                  <Link to='/game/list/detail'>Check</Link>
                 </Link>
                 <div className='arrowinfo__content'>
                   <p>Release: {release_date}</p>
