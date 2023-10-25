@@ -13,6 +13,7 @@ import AccountActivatedSuccess from "./containers/Pages/AccountActivated/Account
 import AccountActivated from "./containers/Pages/AccountActivated/AccountActivated/AccountActivated";
 import AccountActivatedError from "./containers/Pages/AccountActivated/AccountActivatedError/AccountActivatedError";
 import Profile from './content/Account/Profile/Profile'
+import Settings from './content/Account/Settings/Settings'
 {/* Game list */}
 import GameHomeView from "./content/GamesList/GameHome/GameHomeView";
 import GameCreate from "./content/GamesList/GameCreate/GameCreate";
@@ -47,6 +48,7 @@ function App() {
             <Route path="/accounts/activated" element={<AccountActivated />}/>
             <Route path="/accounts/activate/error" element={<AccountActivatedError />}/>
             <Route path="/profile/:slug" element={<Profile />}/>
+            <Route path="/profile/settings" element={<Settings />}/>
 
             {/* Game list */}
             <Route path="/game/list/:gameStatus" element={<GameHomeView />}/>

@@ -80,7 +80,7 @@ const Navbar = () => {
                     {isMobile ? 
                       <FontAwesomeIcon icon={faGear} size="lg" /> 
                       : 
-                      <p className='icon'>Settings <FontAwesomeIcon icon={faGear} /></p>
+                      <Link to='/profile/settings'><p className='icon'>Settings <FontAwesomeIcon icon={faGear} /></p></Link>
                     }
                     </Link>
                   </li>

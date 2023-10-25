@@ -6,8 +6,8 @@ import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
 const Settings = () => {
   return (
-    <div>
-      <CommingSoonView />
+    <div className='containers'>
+      dsg
     </div>
   )
 }
