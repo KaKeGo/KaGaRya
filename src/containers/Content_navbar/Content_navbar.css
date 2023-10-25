@@ -1,7 +1,9 @@
 
 .content_navbar {
+    position: relative;
     background-color: rgba(6, 7, 108, 0.8);
     border-radius: 8px;
+    margin-bottom: 50px;
 }
 
 .nav__links ul {
@@ -26,4 +28,31 @@
 
 .icon:hover {
     color: rgba(218, 184, 249, 0.9);
+}
+
+.additional__menu {
+    position: absolute;
+    left: 20%;
+    width: 60%;
+    top: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(6, 7, 108, 0.8);
+    padding: 6px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+.list {
+    display: flex;
+    color: white;
+}
+
+.list li {
+    margin: 0 10px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
 }

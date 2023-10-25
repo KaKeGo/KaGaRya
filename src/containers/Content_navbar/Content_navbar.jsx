@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import './Content_navbar.css'
 
 const Content_navbar = () => {
+  const location = useLocation()
+
   return (
     <nav className='mb-4 mx-2 content_navbar'>
         <div className='p-4'>
@@ -20,6 +22,22 @@ const Content_navbar = () => {
 
             </div>
         </div>
+
+        {location.pathname.startsWith('/game/list/public') && (
+          <div className='additional__menu'>
+            
+            <ul className='list'>
+              <li className='icon'>
+                <Link>Platforms</Link>
+              </li>
+              <li className='icon'>
+                <Link>GameDeveloper</Link>
+              </li>
+            </ul>
+
+          </div>
+        )}
+
     </nav>
   )
 }
