@@ -22,7 +22,7 @@ export const CreateGame = createAsyncThunk(
 
         try {
             const response = await axios.post(
-                `${DEV_URL}games/create/`,
+                `${AKI}games/create/`,
                 { title: gameTitle },
                 config,
             )
