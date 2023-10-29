@@ -23,7 +23,7 @@
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    translate: 0 -100px;
+    translate: 0 -350px;
     position: relative;
     animation: moveAround 15s linear infinite;
   }
@@ -38,7 +38,7 @@
   }
   
   .reg_err p {
-    translate: 0 160px;
+    translate: 0 -85px;
     position: relative;
     font-size: 420px;
     color:#bb0f0fcc;
