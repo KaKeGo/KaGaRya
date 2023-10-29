@@ -9,10 +9,6 @@ import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 import GameMenu from '../../../containers/GameMenu/GameMenu'
 
 import './GameList.css'
-import SwitchStatusButton from '../../../components/SwitchStatusButton/SwitchStatusButton'
-import CreateGameButton from '../../../components/CreateGameButton/CreateGameButton'
-
-
 
 const GameListView = () => {
   const dispatch = useDispatch()
@@ -63,9 +59,6 @@ const GameListView = () => {
   } else if (status === 'succeeded') {
     return (
       <div className='game__container'>
-        {user && user.roles.includes('GameCreator') && <SwitchStatusButton />}
-        {isAuthenticated && <CreateGameButton />}
-
         <div className='game__column1'>
         {games.results && games.results.map((game) =>(
         <div className='games__box' key={game.id}>

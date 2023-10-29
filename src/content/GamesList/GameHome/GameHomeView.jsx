@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import './GameHomeView.css'
 
@@ -7,9 +8,13 @@ import GameListView from '../GameList/GameListView'
 import RecentlyAddedGames from '../RecentlyAddedGames/RecentlyAddedGames'
 import CommingSoonView from '../../../containers/CommingSoon/CommingSoon'
 
+import SwitchStatusButton from '../../../components/SwitchStatusButton/SwitchStatusButton'
+import CreateGameButton from '../../../components/CreateGameButton/CreateGameButton'
 
 const GameHomeView = () => {
   const [showMoreButton, setShowMoreButton] = useState(false)
+
+  const { user, isAuthenticated } = useSelector((state) => state.authCheck)
 
   const handleShowMoreButtonChange = (newShowMoreButton) => {
     setShowMoreButton(newShowMoreButton);
@@ -17,6 +22,10 @@ const GameHomeView = () => {
 
   return (
     <div className='containers gamehome__container'>
+      <div className='switchStatusButton'>
+        {user && user.roles.includes('GameCreator') && <SwitchStatusButton />}
+        {isAuthenticated && <CreateGameButton />}
+      </div>
 
       <div className='gamehome__column1'>
         <div className='recentlygames__column1'>

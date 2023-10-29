@@ -70,6 +70,11 @@
     color: rgba(218, 184, 249, 0.9);
 }
 
+.switchStatusButton {
+    position: relative;
+    z-index: 1000;
+}
+
 @media (max-width: 1200px) {
     .gameevent__column {
         width: 50%;
