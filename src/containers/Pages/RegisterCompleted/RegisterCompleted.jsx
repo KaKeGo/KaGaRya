@@ -1,9 +1,65 @@
 import React from 'react'
-import './RegisterCompleted.css'
-import {Link} from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
+import './RegisterCompleted.css'
 
 const RegisterCompleted = () => {
+  return (
+    <div className="r">
+    <div className="reg">
+      <div className="reg_circle">
+      <h2 className="reg_text"> 
+      <span style={{transform: 'rotate(0deg)'}}>R</span>
+      <span style={{transform: 'rotate(9.5deg)'}}>e</span>
+      <span style={{transform: 'rotate(18deg)'}}>g</span>
+      <span style={{transform: 'rotate(29deg)'}}>i</span>
+      <span style={{transform: 'rotate(36deg)'}}>s</span>
+      <span style={{transform: 'rotate(46deg)'}}>t</span>
+      <span style={{transform: 'rotate(56deg)'}}>r</span>
+      <span style={{transform: 'rotate(66.5deg)'}}>a</span>
+      <span style={{transform: 'rotate(76deg)'}}>t</span>
+      <span style={{transform: 'rotate(84.5deg)'}}>i</span>
+      <span style={{transform: 'rotate(91deg)'}}>o</span>
+      <span style={{transform: 'rotate(101.5deg)'}}>n</span>
+      <span style={{transform: 'rotate(114deg)'}}> </span>
+      <span style={{transform: 'rotate(120.5deg)'}}>c</span>
+      <span style={{transform: 'rotate(130deg)'}}>o</span>
+      <span style={{transform: 'rotate(140deg)'}}>m</span>
+      <span style={{transform: 'rotate(152deg)'}}>p</span>
+      <span style={{transform: 'rotate(161.5deg)'}}>l</span>
+      <span style={{transform: 'rotate(171deg)'}}>e</span>
+      <span style={{transform: 'rotate(180.5deg)'}}>t</span>
+      <span style={{transform: 'rotate(190deg)'}}>e</span>
+      <span style={{transform: 'rotate(199.5deg)'}}>d</span>
+      <span style={{transform: 'rotate(209deg)'}}> </span>
+      <span style={{transform: 'rotate(218.5deg)'}}>-</span>
+      <span style={{transform: 'rotate(228deg)'}}> </span>
+      <span style={{transform: 'rotate(237.5deg)'}}>c</span>
+      <span style={{transform: 'rotate(247deg)'}}>h</span>
+      <span style={{transform: 'rotate(256.5deg)'}}>e</span>
+      <span style={{transform: 'rotate(265deg)'}}>c</span>
+      <span style={{transform: 'rotate(275.5deg)'}}>k</span>
+      <span style={{transform: 'rotate(285deg)'}}> </span>
+      <span style={{transform: 'rotate(294.5deg)'}}>e</span>
+      <span style={{transform: 'rotate(302deg)'}}>m</span>
+      <span style={{transform: 'rotate(314.5deg)'}}>a</span>
+      <span style={{transform: 'rotate(325deg)'}}>i</span>
+      <span style={{transform: 'rotate(331.5deg)'}}>l</span>
+      <span style={{transform: 'rotate(342deg)'}}> </span>
+      <span style={{transform: 'rotate(345.5deg)'}}>-</span>
+      </h2>
+      </div>
+      <div><p><FontAwesomeIcon icon={faEnvelope} size='xs'/></p></div>
+    </div>
+    </div>
+  )
+}
+
+export default RegisterCompleted
+
+/* const RegisterCompleted = () => {
   return (
     <div className="reg">
        <p>&#10003;</p>
@@ -54,5 +110,5 @@ const RegisterCompleted = () => {
 }
 
 export default RegisterCompleted
-
- /*<Link to='/login'>Login</Link> */
+*/
+ /*<Link to='/login'>Login</Link> */ 
