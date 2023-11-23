@@ -69,7 +69,7 @@ const GameCreate = () => {
           </div>
 
           <button type='Submit' className='gamecreate__button'>Send</button>
-
+      <CSRFToken />
       </form>
       
       
