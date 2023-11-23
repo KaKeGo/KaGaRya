@@ -29,7 +29,7 @@ const GameCreate = () => {
       setTitle('')
       setTimeout(() => {
         setIsSubmitting(false)
-      }, 6000)
+      }, 2000)
     } else {
       if (resultAction.payload) {
         setTitleError(resultAction.payload.title ? resultAction.payload.title[0] : null)
