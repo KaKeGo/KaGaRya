@@ -8,6 +8,7 @@ import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
 import GameMenu from '../../../containers/GameMenu/GameMenu'
 
+
 import './GameList.css'
 
 const GameListView = () => {
@@ -66,7 +67,7 @@ const GameListView = () => {
                 title={game.title} release_date={game.release_date}
                 cover={game.cover} developer={game.developer}
                 game_type={game.game_type} game_mode={game.game_mode}
-                average_rating={game.average_rating}
+                average_rating={game.average_rating} game_slug={game.game_slug}
               />
           </div>
           ))}

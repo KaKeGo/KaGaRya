@@ -9,7 +9,8 @@ import './GameMenu.css';
 
 
 const GameMenu = ({
-   title, cover, release_date, developer, game_type, game_mode, average_rating
+   title, cover, release_date, developer, game_type, game_mode, 
+   average_rating, game_slug
   }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -29,7 +30,7 @@ const GameMenu = ({
         {isOpen && 
             <div className='arrow__info'>
                 <Link className='arrow__check'>
-                  <Link to='/game/list/detail'>Check</Link>
+                  <Link to={`/game/${game_slug}`}>Check</Link>
                 </Link>
                 <div className='arrowinfo__content'>
                   <p>Release: {release_date}</p>

@@ -53,7 +53,7 @@ function App() {
             {/* Game list */}
             <Route path="/game/list/:gameStatus" element={<GameHomeView />}/>
             <Route path="/game/add" element={<GameCreate />}/>
-            <Route path="/game/list/detail" element={<GameDetailView />}/>
+            <Route path="/game/:slug" element={<GameDetailView />}/>
             {/* Game event list */}
             <Route path="/recentlyadded/more" element={<RecentlyAddedFullGames />}/>
             <Route path="/premiers/more" element={<Premiers />}/>

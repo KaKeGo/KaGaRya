@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { CreateGame } from '../../../slice/GameLists/CreateGame/CreateGameSlice'
+import { CreateGame } from '../../../slice/GameLists/CreateGame/createGameSlice'
 
 import CSRFToken from '../../../CSRFToken'
 import FadeIn from '../../../animations/FadeIn/FadeIn'
@@ -29,7 +29,7 @@ const GameCreate = () => {
       setTitle('')
       setTimeout(() => {
         setIsSubmitting(false)
-      }, 6000)
+      }, 3000)
     } else {
       if (resultAction.payload) {
         setTitleError(resultAction.payload.title ? resultAction.payload.title[0] : null)
@@ -70,6 +70,7 @@ const GameCreate = () => {
 
           <button type='Submit' className='gamecreate__button'>Send</button>
 
+        <CSRFToken />
       </form>
       
       
