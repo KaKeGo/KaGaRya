@@ -41,6 +41,7 @@ border-bottom: 2px solid rgba(6, 7, 108, 0.8); */
     height: 40px;
     color: rgba(6, 7, 108, 0.8);
     font-weight: 600;
+    margin-top: 30px;
 }
 
 .games__title {
@@ -58,16 +59,32 @@ border-bottom: 2px solid rgba(6, 7, 108, 0.8); */
     text-align: center;
 }
 
-.game__pagination button {
-    margin: 0 5px;
+.game__pagination {
+    display: flex;
+    align-items: center;
 }
 
 .game__pagination button:disabled {
-    display: none;
+    color: gray;
 }
 
 .add__button {
     margin-bottom: 20px;
+}
+
+.above__number {
+    font-size: 14px;
+    cursor: default;
+    font-weight: bold;
+    margin: 1px;
+}
+
+.middle__number {
+    font-size: 20px;
+    cursor: default;
+    font-weight: bold;
+    margin: 0 5px;
+    transform: translateY(-1px);
 }
 
 @media (max-width: 1000px) {

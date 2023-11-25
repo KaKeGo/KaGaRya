@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate, useParams } from 'react-router-dom'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faChevronLeft, faChevronRight, faAnglesRight, faAnglesLeft
+} from '@fortawesome/free-solid-svg-icons'
 
 import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
@@ -10,6 +13,7 @@ import GameMenu from '../../../containers/GameMenu/GameMenu'
 
 
 import './GameList.css'
+
 
 const GameListView = () => {
   const dispatch = useDispatch()
@@ -44,14 +48,24 @@ const GameListView = () => {
     }
   }, [dispatch, gameStatus, user, navigate, userLoaded, isAuthenticated])
 
+  const handleFirsPage = () => {
+    if (games.links.first) {
+      dispatch(GameList({ url: games.links.first }))
+    }
+  }
   const handlePrevPage = () => {
-    if (games.previous) {
-      dispatch(GameList({ url: games.previous }))
+    if (games.links.previous) {
+      dispatch(GameList({ url: games.links.previous }))
     }
   }
   const handleNextPage = () => {
-    if (games.next) {
-      dispatch(GameList({ url: games.next }))
+    if (games.links.next) {
+      dispatch(GameList({ url: games.links.next }))
+    }
+  }
+  const handleLastPage = () => {
+    if (games.links.last) {
+      dispatch(GameList({ url: games.links.last }))
     }
   }
 
@@ -75,12 +89,46 @@ const GameListView = () => {
 
         <div className='game__column2'>
           <div className='game__pagination'>
-            <button onClick={handlePrevPage} disabled={!games.previous}>
-              <FontAwesomeIcon icon={faChevronLeft} size='lg' />Previous
+
+            <button onClick={handleFirsPage} disabled={!games.links.previous}>
+              <FontAwesomeIcon icon={faAnglesLeft} size='lg'/>
             </button>
-            <button onClick={handleNextPage} disabled={!games.next}>
-              Next<FontAwesomeIcon icon={faChevronRight} size='lg' />
+
+            <button onClick={handlePrevPage} disabled={!games.links.previous}>
+              <FontAwesomeIcon icon={faChevronLeft} size='xl' />
             </button>
+
+            {games.current_page > 1 && (
+              <button className='above__number'>
+                {games.current_page - 1}
+              </button>
+            )}
+
+            <button className='middle__number'>
+              {games.current_page}
+            </button>
+
+            {games.current_page < games.total_pages && (
+              <button className='above__number'>
+                {games.current_page + 1}
+              </button>
+            )}
+
+            {games.current_page < games.total_pages -1 && (
+              <>
+                <button className='above__number'>...</button>
+                <button className='above__number'>{games.total_pages}</button>
+              </>
+            )}
+
+            <button onClick={handleNextPage} disabled={!games.links.next}>
+              <FontAwesomeIcon icon={faChevronRight} size='xl' />
+            </button>
+
+            <button onClick={handleLastPage} disabled={!games.links.next}>
+              <FontAwesomeIcon icon={faAnglesRight} size='lg' />
+            </button>
+
           </div>
         </div>
 
