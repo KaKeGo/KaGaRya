@@ -34,38 +34,44 @@ const GameListView = () => {
     }
   }, [user])
 
+
   useEffect(() => {
     if (userLoaded) {
       if (user && user.roles.includes('GameCreator')) {
         dispatch(GameList({ gameStatus }))
       } else {
         dispatch(GameList({ gameStatus: 'public' }))
-        navigate('/game/list/public')
+        navigate(`/game/list/${gameStatus}`)
       }
     } else if (!isAuthenticated) {
       dispatch(GameList({ gameStatus: 'public' }))
-      navigate('/game/list/public')
+      navigate(`/game/list/${gameStatus}`)
     }
   }, [dispatch, gameStatus, user, navigate, userLoaded, isAuthenticated])
 
   const handleFirsPage = () => {
     if (games.links.first) {
-      dispatch(GameList({ url: games.links.first }))
+      dispatch(GameList({ url: games.links.first }));
     }
   }
   const handlePrevPage = () => {
     if (games.links.previous) {
-      dispatch(GameList({ url: games.links.previous }))
+      dispatch(GameList({ url: games.links.previous }));
     }
   }
   const handleNextPage = () => {
     if (games.links.next) {
-      dispatch(GameList({ url: games.links.next }))
+      dispatch(GameList({ url: games.links.next }));
     }
   }
   const handleLastPage = () => {
     if (games.links.last) {
       dispatch(GameList({ url: games.links.last }))
+    }
+  }
+  const handleCurrentPage = () => {
+    if (games.links && games.links.current) {
+      dispatch(GameList({ url: games.links.current }));
     }
   }
 
@@ -104,7 +110,7 @@ const GameListView = () => {
               </button>
             )}
 
-            <button className='middle__number'>
+            <button className='middle__number' onClick={handleCurrentPage}>
               {games.current_page}
             </button>
 

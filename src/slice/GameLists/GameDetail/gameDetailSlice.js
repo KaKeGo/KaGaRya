@@ -4,11 +4,13 @@ import axios from "axios"
 import { DEV_URL, AKI } from '../../../apiConfig'
 
 
-export const fetchGameDetail = createAsyncThunk(
-    'gameDetail/fetchGameDetail',
+export const GameDetail = createAsyncThunk(
+    'gameDetail/gameDetail',
     async (slug) => {
         try {
-            const response = await axios.get(`${DEV_URL}games/detail/${slug}`)
+            const response = await axios.get(`${DEV_URL}games/detail/${slug}/`)
+            console.log('elo')
+            console.log(response.data)
             return response.data
         } catch (err) {
             return rejectWithValue(err.response.data)
@@ -29,14 +31,14 @@ export const gameDetailSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchGameDetail.pending, (state) => {
+            .addCase(GameDetail.pending, (state) => {
                 state.status = 'loading'
             })
-            .addCase(fetchGameDetail.fulfilled, (state, action) => {
+            .addCase(GameDetail.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 state.game = action.payload
             })
-            .addCase(fetchGameDetail.rejected, (state, action) => {
+            .addCase(GameDetail.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.error.message
             })

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+// Global state
+import authUserCheckReducer from './slice/Accounts/AuthUserCheck/authUserCheck'
+import navigationReducer from './slice/GlobalSlices/navigation'
 // User
 import registerReducer from './slice/Accounts/Register/registerSlice'
 import loginReducer from './slice/Accounts/Login/loginSlice'
 import logoutReducer from './slice/Accounts/Logout/logoutSlice'
-import authUserCheckReducer from './slice/Accounts/AuthUserCheck/authUserCheck'
 // Game List
 import gameListReducer from './slice/GameLists/GameList/gameListSlice'
 import gameCreateReducer from './slice/GameLists/CreateGame/createGameSlice'
@@ -15,8 +17,10 @@ import recentlyGamesReducer from './slice/GameLists/RecentlyGames/recentlyGamesS
 
 const store = configureStore({
     reducer: {
-        // User
+        // Global state
         authCheck: authUserCheckReducer,
+        navigation: navigationReducer,
+        // User
         register: registerReducer,
         login: loginReducer,
         logout: logoutReducer,
