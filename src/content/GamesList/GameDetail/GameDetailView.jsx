@@ -30,7 +30,9 @@ const GameDetailView = () => {
     }
   }, [status, dispatch, slug, user])
 
-
+  useEffect(() => {
+    dispatch(GameDetail(slug));
+  }, [dispatch, slug]);
 
   if (status === 'loading') {
     return <div className='containers'>
@@ -72,39 +74,131 @@ const GameDetailView = () => {
               <div className='inner__column1'>
 
                 <div className='gamedetail__cover'>
-                  <img className='cover' src={game.cover} alt={game.title}/>
+                  <img className='cover' src='https://i.redd.it/bueqtztxmnj81.png' alt={game.title}/>
                 </div>
 
                 <div className='gamedetail__title'>
                   <h2>{game.title}</h2>
+                </div>
+                <div className='gamedetail__content score'>
+                  <h2>Users score: {game.average_rating}</h2>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>Content:</h2>
+                  <p>{game.category}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>Version:</h2>
+                  <p>{game.game_version}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>Developer:</h2>
+                  <p>{game.developer}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>Publisher:</h2>
+                  <p>{game.game_publisher}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>Release Date:</h2>
+                  <p>{game.release_date}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>Type of Game:</h2>
+                  <p>{game && game.game_type && game.game_type.join(', ')}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>game mode:</h2>
+                  <p>{game && game.game_mode && game.game_mode.join(', ')}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>platforms:</h2>
+                  <p>{game && game.platforms && game.platforms.join(', ')}</p>
+                </div>
+                <div className='gamedetail__content'>
+                  <h2>tags:</h2>
+                  <p>{game && game.tags && game.tags.join(', ')}</p>
                 </div>
 
               </div>
 
               <div className='inner__column2'>
 
-                {game && game.trailer && (
                 <div className='trailer__container'>
-                    <iframe 
-                      className='trailer'
-                      width="560" 
-                      height="315" 
-                      src={`${game.trailer.replace("watch?v=", "embed/")}?autoplay=1&mute=1&controls=0&loop=1&playlist=K_03kFqWfqs&modestbranding=1&rel=0&showinfo=0`} 
-                      title="YouTube video player" 
-                      frameborder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen>
-                    </iframe>
-                </div>
+                {game && game.trailer && (
+                  <div className='trailer__container'>
+                  <iframe 
+                    className='trailer'
+                    width="560" 
+                    height="315" 
+                    src={`${game.trailer}&autoplay=1&loop=1&mute=1&modestbranding=1&playlist=${game.trailer.split('/').pop().split('?')[0]}`}
+                    title="Trailer" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                    ></iframe>
+                  </div>
                 )}
+                </div>
+
+                <div className='horizontal__line'></div>
+
+                <div className='body__container'>
+                {game && game.body && game.body.split('\r\n\r\n').map((paragraph, index) => (
+                  <p key={index}>{paragraph.replace('\r\n', ' ')}</p>
+                ))}
+                </div>
 
               </div>
               
             </div>
-            
-            <div className='gamedetail__column2'></div>
 
-            <div className='gamedetail__column3'></div>
+            <div className='horizontal__line'></div>
+
+            <div className='gamedetail__column2'>
+
+              <h2 className='system__requirements__title'>System requirements</h2>
+
+              <div className='column2__content'>
+                <div className='column'>
+
+                  <h3 className='column__title'>Minimum</h3>
+                  <div className='column__horizontal__line'></div>
+                  <p className='column__content'>Zawartość Kolumny 3</p>
+
+                </div>
+                <div className='column'>
+
+                  <h3 className='column__title'>Recommended</h3>
+                  <div className='column__horizontal__line'></div>
+                  <p className='column__content'>Zawartość Kolumny 3</p>
+
+                </div>
+                <div className='column'>
+
+                  <h3 className='column__title'>Highest</h3>
+                  <div className='column__horizontal__line'></div>
+                  <p className='column__content'>Zawartość Kolumny 3</p>
+                  
+                </div>
+              </div>
+
+            </div>
+
+            <div className='horizontal__line'></div>
+
+            <div className='gamedetail__column3'>
+
+              <div className='gamedetail__column3__text'>
+                <p>Added by: {game.added_by}</p>
+              </div>
+
+              <p>
+                If you have found any inaccuracies or have an idea on how to make things better, 
+                click 'Report' and write to us.
+              </p>
+
+            </div>
 
         </div>
         </div>
