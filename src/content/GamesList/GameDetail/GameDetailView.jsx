@@ -164,23 +164,53 @@ const GameDetailView = () => {
 
                   <h3 className='column__title'>Minimum</h3>
                   <div className='column__horizontal__line'></div>
-                  <p className='column__content'>Zawartość Kolumny 3</p>
-
+                  {game && game.minimum_requirements && (
+                    <>
+                      <p className='column__content'><span className='column__label'>OS:</span> {game.minimum_requirements.os}</p>
+                      <p className='column__content'><span className='column__label'>CPU:</span> {game.minimum_requirements.cpu}</p>
+                      <p className='column__content'><span className='column__label'>RAM:</span> {game.minimum_requirements.ram}</p>
+                      <p className='column__content'><span className='column__label'>GPU:</span> {game.minimum_requirements.gpu}</p>
+                      <p className='column__content'><span className='column__label'>Direct X:</span> {game.minimum_requirements.direct_x}</p>
+                      <p className='column__content'><span className='column__label'>Storage:</span> {game.minimum_requirements.storage}</p>
+                      <p className='column__content'><span className='column__label'>Sound Card:</span> {game.minimum_requirements.sound_card}</p>
+                    </>
+                  )}
                 </div>
+
                 <div className='column'>
 
                   <h3 className='column__title'>Recommended</h3>
                   <div className='column__horizontal__line'></div>
-                  <p className='column__content'>Zawartość Kolumny 3</p>
-
+                  {game && game.recommended_requirements && (
+                    <>
+                      <p className='column__content'><span className='column__label'>OS:</span> {game.recommended_requirements.os}</p>
+                      <p className='column__content'><span className='column__label'>CPU:</span> {game.recommended_requirements.cpu}</p>
+                      <p className='column__content'><span className='column__label'>RAM:</span> {game.recommended_requirements.ram}</p>
+                      <p className='column__content'><span className='column__label'>GPU:</span> {game.recommended_requirements.gpu}</p>
+                      <p className='column__content'><span className='column__label'>Direct X:</span> {game.recommended_requirements.direct_x}</p>
+                      <p className='column__content'><span className='column__label'>Storage:</span> {game.recommended_requirements.storage}</p>
+                      <p className='column__content'><span className='column__label'>Sound Card:</span> {game.recommended_requirements.sound_card}</p>
+                    </>
+                  )}
                 </div>
+
                 <div className='column'>
 
                   <h3 className='column__title'>Highest</h3>
                   <div className='column__horizontal__line'></div>
-                  <p className='column__content'>Zawartość Kolumny 3</p>
-                  
+                  {game && game.highest_requirements && (
+                    <>
+                      <p className='column__content'><span className='column__label'>OS:</span> {game.highest_requirements.os}</p>
+                      <p className='column__content'><span className='column__label'>CPU:</span> {game.highest_requirements.cpu}</p>
+                      <p className='column__content'><span className='column__label'>RAM:</span> {game.highest_requirements.ram}</p>
+                      <p className='column__content'><span className='column__label'>GPU:</span> {game.highest_requirements.gpu}</p>
+                      <p className='column__content'><span className='column__label'>Direct X:</span> {game.highest_requirements.direct_x}</p>
+                      <p className='column__content'><span className='column__label'>Storage:</span> {game.highest_requirements.storage}</p>
+                      <p className='column__content'><span className='column__label'>Sound Card:</span> {game.highest_requirements.sound_card}</p>
+                    </>
+                  )}
                 </div>
+
               </div>
 
             </div>
