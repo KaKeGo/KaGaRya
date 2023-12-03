@@ -32,6 +32,10 @@
     /* background-color: rgba(255, 168, 0, 0.8); */
 }
 
+.button__save {
+    background-color: rgba(8, 238, 8, 0.8);
+}
+
 .btn__nav {
     font-weight: bold;
     color: white;
@@ -93,7 +97,12 @@
     border: 1px solid rgba(6, 7, 108, 0.8);
 }
 
+.gamedetail__info {
+    width: 240px;
+}
+
 .gamedetail__title {
+    margin-left: 10px;
     margin-top: 10px;
     padding: 5px;
 }
@@ -102,7 +111,6 @@
     font-size: 18px;
     color: black;
     font-weight: 700;
-    margin-left: 5px;
     text-transform: capitalize;
 }
 
@@ -111,6 +119,7 @@
     color: black;
     font-weight: 600;
     margin-left: 10px;
+    padding-left: 10px;
     text-transform: capitalize;
 }
 
@@ -207,4 +216,74 @@
 
 .column__label {
     font-weight: 600;
+}
+
+.input__container {
+    display: flex;
+    align-items: center;
+}
+
+.input__content {
+    width: 100%;
+    background: transparent;
+    text-transform: capitalize;
+    padding-left: 10px;
+    position: relative;
+    background: url('../../../resorces/inputBacground/ibg.gif') no-repeat center center;
+    background-size: cover;
+}
+
+.input__content:focus {
+    outline: none;
+    
+}
+
+.title__name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.input__icon {
+    padding: 6px 6px;
+    background-color: rgba(6, 7, 108, 0.8);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 5px;
+}
+
+.input__highlight {
+    border-bottom: 1px solid rgba(6, 7, 108, 0.8);
+    width: 100%;
+}
+
+.select__item {
+    height: 28px;
+    width: 100%; 
+    background: url('../../../resorces/inputBacground/ibg.gif') no-repeat center center ;
+    background-size: cover;
+    padding-left: 10px;
+}
+
+.custom__menu {
+    height: 180px;
+    overflow-y: auto;
+    background-color: rgba(6, 7, 108, 0.8);
+}
+
+.custom__menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom__menu::-webkit-scrollbar-track {
+    background: rgba(6, 7, 108, 0.2);
+}
+
+.custom__menu::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+.custom__menu::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
