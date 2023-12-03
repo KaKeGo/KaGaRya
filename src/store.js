@@ -11,6 +11,7 @@ import logoutReducer from './slice/Accounts/Logout/logoutSlice'
 import gameListReducer from './slice/GameLists/GameList/gameListSlice'
 import gameCreateReducer from './slice/GameLists/CreateGame/createGameSlice'
 import gameDetailReducer from './slice/GameLists/GameDetail/gameDetailSlice'
+import gameUpdateReducer from './slice/GameLists/GameUpdate/gameUpdateSlice'
 // Game Events
 import recentlyGamesReducer from './slice/GameLists/RecentlyGames/recentlyGamesSlice'
 
@@ -28,6 +29,7 @@ const store = configureStore({
         gameList: gameListReducer,
         gameCreate: gameCreateReducer,
         gameDetail: gameDetailReducer,
+        gameUpdate: gameUpdateReducer,
         // Game Events
         recentlyGames: recentlyGamesReducer,
     }

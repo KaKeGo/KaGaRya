@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import { GameDetail } from '../../../slice/GameLists/GameDetail/gameDetailSlice'
+import { UpdateGame } from '../../../slice/GameLists/GameUpdate/gameUpdateSlice'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
+import CSRFToken from '../../../CSRFToken'
+import useEditableState from '../../../components/useEditableState/useEditableState'
 
 import './GameDetailView.css'
 
@@ -14,12 +17,16 @@ const GameDetailView = () => {
   const dispatch = useDispatch()
   const { slug } = useParams()
 
-  const game = useSelector(state => state.gameDetail.game)
+  const [game, setGame] = useState(null)
+  const gameFromStore = useSelector(state => state.gameDetail.game)
   const status = useSelector(state => state.gameDetail.status)
   const error = useSelector(state => state.gameDetail.error)
   const {user, isAuthenticated} = useSelector((state) => state.authCheck)
 
   const [userLoaded, setUserLoaded] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
+
+  const title = useEditableState('')
 
   useEffect(() => {
     if (status === 'idle') {
@@ -31,17 +38,43 @@ const GameDetailView = () => {
   }, [status, dispatch, slug, user])
 
   useEffect(() => {
+    if (gameFromStore) {
+      title.setValue(gameFromStore.title)
+
+      setGame(gameFromStore)
+    }
+  }, [gameFromStore])
+
+  useEffect(() => {
     dispatch(GameDetail(slug));
   }, [dispatch, slug]);
 
-  if (status === 'loading') {
+  const handleUpdate = () => {
+    dispatch(UpdateGame({ 
+      slug, 
+      updatedData: {
+        title: title.value
+      } 
+    }))
+    setGame(prevGame => ({
+      ...prevGame,
+      title: title.value
+    }))
+    setIsEditing(false)
+  }
+
+  if (status === 'loading' || !game) {
     return <div className='containers'>
       <div>Loading...</div>
     </div>
   } else if (status === 'idle' || status === 'succeeded') {
     return (
       <FadeIn>
-      <div className='containers'>
+      <form className='containers'>
+      {isEditing ? (
+        <CSRFToken />
+      ) : (<></>)}
+
         <div className='gamedetail__containers'>
 
         <div className='gamedetail__buttons'>
@@ -56,7 +89,23 @@ const GameDetailView = () => {
             {userLoaded && user.roles.includes('GameCreator') && (
               <>
                 <button className='button__delete btn__nav'>Delete</button>
-                <button className='button__update btn__nav'>Update</button>
+                {isEditing ? (
+                  <button
+                    type='button'
+                    className='button__save btn__nav'
+                    onClick={handleUpdate}
+                  >
+                    Save
+                  </button>
+                ) : (
+                  <button
+                    type='button'
+                    className='button__update btn__nav'
+                    onClick={() => setIsEditing(true)}
+                  >
+                    Update
+                  </button>
+                )}
               </>
             )}
             {isAuthenticated && !user.roles.includes('GameCreator') && (
@@ -72,13 +121,23 @@ const GameDetailView = () => {
             <div className='gamedetail__column1'>
 
               <div className='inner__column1'>
+                
 
                 <div className='gamedetail__cover'>
                   <img className='cover' src='https://i.redd.it/bueqtztxmnj81.png' alt={game.title}/>
                 </div>
 
                 <div className='gamedetail__title'>
-                  <h2>{game.title}</h2>
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      value={title.value}
+                      onChange={title.handleChange}
+                      onBlur={title.handleBlur}
+                    />
+                  ) : (
+                    <h2 onClick={title.handleEdit}>{game && game.title}</h2>
+                  )}
                 </div>
                 <div className='gamedetail__content score'>
                   <h2>Users score: {game.average_rating}</h2>
@@ -232,7 +291,7 @@ const GameDetailView = () => {
 
         </div>
         </div>
-      </div>
+      </form>
       </FadeIn>
     )
   } else if (status === 'failed') {
