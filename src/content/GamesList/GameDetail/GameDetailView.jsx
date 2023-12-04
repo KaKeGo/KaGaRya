@@ -16,6 +16,7 @@ import { GameCategory } from '../../../slice/GameLists/GameCategory/gameCategory
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 import CSRFToken from '../../../CSRFToken'
 import useEditableState from '../../../components/useEditableState/useEditableState'
+import CustomDropdownSelect from '../../../components/CustomDropdownSelect/CustomDropdownSelect'
 
 import './GameDetailView.css'
 
@@ -37,8 +38,8 @@ const GameDetailView = () => {
   const [isEditing, setIsEditing] = useState(false)
   const [categoryName, setCategoryName] = useState('')
 
-  const title = useEditableState('')
   const category = useEditableState('')
+  const title = useEditableState('')
 
   useEffect(() => {
     if (status === 'idle') {
@@ -73,6 +74,14 @@ const GameDetailView = () => {
     return categories.find(cat => cat.id === Number(value));
   }
 
+  const handleChange = (value) => {
+    const selectedCategory = categoryFromStore.find(cat => cat.id === value);
+    if (selectedCategory) {
+      category.setValue(selectedCategory.id);
+      setCategoryName(selectedCategory.name);
+    }
+  }
+
   const handleUpdate = async () => {
     dispatch(UpdateGame({ 
       slug, 
@@ -96,24 +105,20 @@ const GameDetailView = () => {
 
     setIsEditing(false)
   }
-  
-  const menu = (
-    <Menu className='custom__menu'>
-      {categoryFromStore.map((cat) => (
-        <Menu.Item key={cat.id} onClick={() => handleChange(cat.id)}>
-          {cat.name}
-        </Menu.Item>
-      ))}
-    </Menu>
-  )
 
-  const handleChange = (value) => {
-    const selectedCategory = categoryFromStore.find(cat => cat.id === value);
-    if (selectedCategory) {
-      category.setValue(selectedCategory.id);
-      setCategoryName(selectedCategory.name);
+  const onSelectCategory = (itemId) => {
+    console.log("Selected category ID: ", itemId);
+    category.setValue(itemId);
+  }
+
+  const onAddCategory = () => {
+    try {
+      throw new Error("Test error");
+    } catch (err) {
+      setError(err.message);
     }
   }
+
 
   if (status === 'loading' || !game) {
     return <div className='containers'>
@@ -208,17 +213,22 @@ const GameDetailView = () => {
                   <h2>Content:</h2>
                   {isEditing ? (
                     <>
-                    <div className='input__container'>
-                    <Dropdown overlay={menu} className='select__item'>
-                      <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                        {categoryName || "Select"}
-                      </a>
-                    </Dropdown>
-                      <div className='input__icon'>
-                        <FontAwesomeIcon icon={faPenToSquare}/>
+                      <div className='input__container'>
+                        <CustomDropdownSelect
+                          className='custom__select'
+                          initialItems={categoryFromStore.map(cat => ({ name: cat.name, id: cat.id }))}
+                          placeholder='Select category'
+                          selectedItem={category.value}
+                          onAddItem={onAddCategory}
+                          onSelectItem={onSelectCategory}
+                          value={category.value}
+                          addItemText='New category'
+                        />
+                        <div className='input__icon'>
+                          <FontAwesomeIcon icon={faPenToSquare}/>
+                        </div>
                       </div>
-                    </div>
-                    <div className='input__highlight'></div>
+                      <div className='input__highlight'></div>
                     </>
                   ) : (
                     <p>{game.category}</p>

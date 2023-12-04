@@ -1,0 +1,10 @@
+/* .dropdown__menu {
+    max-height: 150px;
+    overflow-y: auto;
+} */
+
+.ant-select-dropdown {
+    max-height: 180px;
+    overflow-y: auto;
+    border-radius: 0;
+}
