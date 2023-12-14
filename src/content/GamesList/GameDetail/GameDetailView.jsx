@@ -21,6 +21,14 @@ import CustomDropdownSelect from '../../../components/CustomDropdownSelect/Custo
 import './GameDetailView.css'
 
 
+const GAME_VERSION = [
+  { name: 'alpha', id: 'alpha' },
+  { name: 'beta', id: 'beta' },
+  { name: 'early access', id: 'early access' },
+  { name: 'full release', id: 'full release' },
+]
+
+
 const GameDetailView = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -41,8 +49,9 @@ const GameDetailView = () => {
   const [userLoaded, setUserLoaded] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 
-  const category = useEditableState('')
   const title = useEditableState('')
+  const category = useEditableState('')
+  const gameVersion = useEditableState('')
 
   useEffect(() => {
     if (status === 'idle') {
@@ -64,6 +73,7 @@ const GameDetailView = () => {
         category.setValue(gameFromStore.category.id)
         setCategoryName(gameFromStore.category.name)
       }
+      gameVersion.setValue(gameFromStore.game_version)
 
       setGame(gameFromStore)
     }
@@ -71,6 +81,7 @@ const GameDetailView = () => {
 
   useEffect(() => {
     dispatch(GameDetail(slug));
+
   }, [dispatch, slug]);
 
   const findCategory = (value, categories) => {
@@ -83,8 +94,11 @@ const GameDetailView = () => {
       updatedData: {
         title: title.value,
         category: category.value,
+        game_version: gameVersion.value,
       } 
-    }))
+    })).then(() => {
+      dispatch(GameDetail(slug))
+    })
 
     const foundCategory = findCategory(category.value, categoryFromStore)
     
@@ -92,7 +106,8 @@ const GameDetailView = () => {
       setGame(prevGame => ({
         ...prevGame,
         title: title.value,
-        category: foundCategory.name,
+        category: foundCategory.id,
+        gameVersion: gameVersion.value,
       }))
       
       setCategoryName(foundCategory.name)
@@ -118,6 +133,8 @@ const GameDetailView = () => {
       console.error(err);
     }
   }
+
+
 
   if (status === 'loading' || !game) {
     return <div className='containers'>
@@ -216,8 +233,8 @@ const GameDetailView = () => {
                         <CustomDropdownSelect
                           className='custom__select'
                           initialItems={categoryFromStore.map(cat => ({ name: cat.name, id: cat.id }))}
-                          placeholder='Select category'
-                          selectedItem={category.value}
+                          placeholder={game.category ? game.category : 'Select category'}
+                          selectedItem={game && game.category ? categoryFromStore.find(cat => cat.id === Number(game.category)) : undefined}
                           onAddItem={onAddCategory}
                           onSelectItem={onSelectCategory}
                           value={category.value}
@@ -236,7 +253,25 @@ const GameDetailView = () => {
                 </div>
                 <div className='gamedetail__content gamedetail__info'>
                   <h2>Version:</h2>
-                  <p>{game.game_version}</p>
+                  {isEditing ? (
+                    <>
+                      <div className='input__container'>
+                        <CustomDropdownSelect
+                          className='custom__select'
+                          initialItems={GAME_VERSION}
+                          placeholder={game.game_version}
+                          selectedItem={game ? game.game_version : gameVersion.value}
+                          onSelectItem={gameVersion.setValue}
+                        />
+                        <div className='input__icon'>
+                          <FontAwesomeIcon icon={faPenToSquare}/>
+                        </div>
+                      </div>
+                      <div className='input__highlight'></div>
+                    </>
+                  ) : (
+                    <p>{game.game_version}</p>
+                  )}
                 </div>
                 <div className='gamedetail__content gamedetail__info'>
                   <h2>Developer:</h2>

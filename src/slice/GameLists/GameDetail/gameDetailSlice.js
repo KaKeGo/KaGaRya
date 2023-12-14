@@ -9,8 +9,6 @@ export const GameDetail = createAsyncThunk(
     async (slug) => {
         try {
             const response = await axios.get(`${DEV_URL}games/detail/${slug}/`)
-            console.log('elo')
-            console.log(response.data)
             return response.data
         } catch (err) {
             return rejectWithValue(err.response.data)
@@ -20,7 +18,7 @@ export const GameDetail = createAsyncThunk(
 
 
 const initialState = {
-    game: [],
+    game: {},
     status: 'idle',
     error: null,
 }

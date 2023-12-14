@@ -54,33 +54,40 @@ const CustomDropdownSelect = ({
             onMouseDown={(e) => e.stopPropagation()}
             dropdownRender={(menu) => (
                 <div 
-                    className="">
-                    {menu}
-                    <Divider style={{ margin: '8px 0' }}/>
-                    <Space direction="vertical" style={{ padding: '0 8px 4px' }}>
-                        <Input 
-                            placeholder="Add them..."
-                            ref={inputRef}
-                            value={name}
-                            onChange={onNameChange}
-                            onKeyDown={(e) => e.stopPropagation()}
-                        />
-                        {error && <Alert message={error} type="error" />}
-                        <Button 
-                            style={{width: '100%'}}
-                            type="text" icon={<PlusOutlined />} 
-                            onClick={addItem}
-                        >
-                            {addItemText}
-                        </Button>
-                    </Space>
+                className="">
+                {menu}
+                {addItemText && onNewItemNameChange && (
+                    <>
+                        <Divider style={{ margin: '8px 0' }}/>
+                        <Space direction="vertical" style={{ padding: '0 8px 4px' }}>
+                            <Input 
+                                placeholder="Add them..."
+                                ref={inputRef}
+                                value={name}
+                                onChange={onNameChange}
+                                onKeyDown={(e) => e.stopPropagation()}
+                            />
+                            {error && <Alert message={error} type="error" />}
+                            <Button 
+                                style={{width: '100%'}}
+                                type="text" icon={<PlusOutlined />} 
+                                onClick={addItem}
+                            >
+                                {addItemText}
+                            </Button>
+                        </Space>
+                        </>
+                    )}
                 </div>
             )}
+            
             options={items.map((item) => ({
                 label: item.name,
                 value: item.id,
             }))}
-            onChange={onSelectItem}
+            onChange={(value) => {
+                onSelectItem(value);
+            }}
         />
     )
 }
