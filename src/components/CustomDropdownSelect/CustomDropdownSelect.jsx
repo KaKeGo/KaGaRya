@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { PlusOutlined } from '@ant-design/icons'
 import { Divider, Input, Select, Space, Button, Alert } from "antd"
 
@@ -15,14 +15,20 @@ const CustomDropdownSelect = ({
         value,
         className,
         addItemText = 'Add item',
+        onNewItemNameChange,
     }) => {
     const [items, setItems] = useState(initialItems)
     const [name, setName] = useState('')
     const [error, setError] = useState(null)
     const inputRef = useRef(null)
 
+    useEffect(() => {
+        setItems(initialItems)
+    }, [initialItems])
+
     const onNameChange = (event) => {
         setName(event.target.value)
+        onNewItemNameChange(event)
     }
 
     const addItem = (e) => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Menu, Dropdown } from 'antd'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
@@ -12,6 +11,7 @@ import {
 import { GameDetail } from '../../../slice/GameLists/GameDetail/gameDetailSlice'
 import { UpdateGame } from '../../../slice/GameLists/GameUpdate/gameUpdateSlice'
 import { GameCategory } from '../../../slice/GameLists/GameCategory/gameCategorySlice'
+import { CreateCategory } from '../../../slice/GameLists/CreateGameCategory/createGameCategory'
 
 import FadeIn from '../../../animations/FadeIn/FadeIn'
 import CSRFToken from '../../../CSRFToken'
@@ -28,15 +28,18 @@ const GameDetailView = () => {
 
   const [game, setGame] = useState(null)
 
+  const [categoryName, setCategoryName] = useState('')
+
   const gameFromStore = useSelector(state => state.gameDetail.game)
   const categoryFromStore = useSelector(state => state.gameCategory.categories)
   const status = useSelector(state => state.gameDetail.status)
   const error = useSelector(state => state.gameDetail.error)
   const {user, isAuthenticated} = useSelector((state) => state.authCheck)
+  const createCategoryError = useSelector(state => state.createCategory ? state.createCategory.error : null)
 
+  const [addError, setAddError] = useState(null)
   const [userLoaded, setUserLoaded] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
-  const [categoryName, setCategoryName] = useState('')
 
   const category = useEditableState('')
   const title = useEditableState('')
@@ -74,14 +77,6 @@ const GameDetailView = () => {
     return categories.find(cat => cat.id === Number(value));
   }
 
-  const handleChange = (value) => {
-    const selectedCategory = categoryFromStore.find(cat => cat.id === value);
-    if (selectedCategory) {
-      category.setValue(selectedCategory.id);
-      setCategoryName(selectedCategory.name);
-    }
-  }
-
   const handleUpdate = async () => {
     dispatch(UpdateGame({ 
       slug, 
@@ -111,14 +106,18 @@ const GameDetailView = () => {
     category.setValue(itemId);
   }
 
-  const onAddCategory = () => {
-    try {
-      throw new Error("Test error");
-    } catch (err) {
-      setError(err.message);
-    }
+  const handleCategoryNameChange = (e) => {
+    setCategoryName(e.target.value);
   }
 
+  const onAddCategory = async () => {
+    try {
+      await dispatch(CreateCategory(categoryName))
+      dispatch(GameCategory())
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   if (status === 'loading' || !game) {
     return <div className='containers'>
@@ -223,6 +222,7 @@ const GameDetailView = () => {
                           onSelectItem={onSelectCategory}
                           value={category.value}
                           addItemText='New category'
+                          onNewItemNameChange={handleCategoryNameChange}
                         />
                         <div className='input__icon'>
                           <FontAwesomeIcon icon={faPenToSquare}/>

@@ -13,6 +13,7 @@ import gameCreateReducer from './slice/GameLists/CreateGame/createGameSlice'
 import gameDetailReducer from './slice/GameLists/GameDetail/gameDetailSlice'
 import gameUpdateReducer from './slice/GameLists/GameUpdate/gameUpdateSlice'
 import gameCategoryReducer from './slice/GameLists/GameCategory/gameCategorySlice'
+import categoryCreateReducer from './slice/GameLists/CreateGameCategory/createGameCategory'
 // Game Events
 import recentlyGamesReducer from './slice/GameLists/RecentlyGames/recentlyGamesSlice'
 
@@ -32,6 +33,7 @@ const store = configureStore({
         gameDetail: gameDetailReducer,
         gameUpdate: gameUpdateReducer,
         gameCategory: gameCategoryReducer,
+        gameCategoryCreate: categoryCreateReducer,
         // Game Events
         recentlyGames: recentlyGamesReducer,
     }
