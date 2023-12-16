@@ -17,6 +17,7 @@ import FadeIn from '../../../animations/FadeIn/FadeIn'
 import CSRFToken from '../../../CSRFToken'
 import useEditableState from '../../../components/useEditableState/useEditableState'
 import CustomDropdownSelect from '../../../components/CustomDropdownSelect/CustomDropdownSelect'
+import Loading from '../../../components/Loading/Loading'
 
 import './GameDetailView.css'
 
@@ -106,7 +107,7 @@ const GameDetailView = () => {
       setGame(prevGame => ({
         ...prevGame,
         title: title.value,
-        category: foundCategory.id,
+        category: foundCategory.value,
         gameVersion: gameVersion.value,
       }))
       
@@ -117,7 +118,6 @@ const GameDetailView = () => {
   }
 
   const onSelectCategory = (itemId) => {
-    console.log("Selected category ID: ", itemId);
     category.setValue(itemId);
   }
 
@@ -138,7 +138,7 @@ const GameDetailView = () => {
 
   if (status === 'loading' || !game) {
     return <div className='containers'>
-      <div>Loading...</div>
+      <Loading />
     </div>
   } else if (status === 'idle' || status === 'succeeded') {
     return (
@@ -337,6 +337,8 @@ const GameDetailView = () => {
 
             <div className='horizontal__line'></div>
 
+            {game && game.platforms && game.platforms.includes('Windows') && (
+            <>
             <div className='gamedetail__column2'>
 
               <h2 className='system__requirements__title'>System requirements</h2>
@@ -398,6 +400,8 @@ const GameDetailView = () => {
             </div>
 
             <div className='horizontal__line'></div>
+            </>
+            )}
 
             <div className='gamedetail__column3'>
 

@@ -5,6 +5,8 @@ import { RecentlyGames } from '../../../slice/GameLists/RecentlyGames/recentlyGa
 
 import GameMenu from '../../../containers/GameMenu/GameMenu'
 
+import Loading from '../../../components/Loading/Loading'
+
 import './RecentlyAddedGames.css'
 
 
@@ -52,7 +54,7 @@ const RecentlyAddedGames = ({ onShowMoreButtonChange }) => {
     }
 
     if (status === 'loading') {
-        return <div>Loading...</div>
+        return <Loading />
     } else if (status === 'succeeded') {
         return (
             <div className='recently__games__container'>

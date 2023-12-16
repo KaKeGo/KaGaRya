@@ -10,6 +10,7 @@ import {
 import { GameList } from '../../../slice/GameLists/GameList/gameListSlice'
 
 import GameMenu from '../../../containers/GameMenu/GameMenu'
+import Loading from '../../../components/Loading/Loading'
 
 
 import './GameList.css'
@@ -76,7 +77,7 @@ const GameListView = () => {
   }
 
   if (status === 'loading') {
-    return <div>Loading...</div>
+    return <Loading />
   } else if (status === 'succeeded') {
     return (
       <div className='game__container'>
